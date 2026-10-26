@@ -3,6 +3,7 @@ const PYODIDE_BASE_URL = `https://cdn.jsdelivr.net/pyodide/v${PYODIDE_VERSION}/f
 const MAX_FILE_COUNT = 25;
 const MAX_PROJECT_SIZE = 256_000;
 const MAX_OUTPUT_SIZE = 20_000;
+const PYPI_PACKAGES = new Set(["seaborn"]);
 
 let pyodide = null;
 let outputText = "";
@@ -108,6 +109,21 @@ async function initializeRuntime() {
   }
 }
 
+async function loadPythonPackages(source) {
+  await pyodide.loadPackagesFromImports(source);
+
+  // seaborn is pure Python but is not included in the Pyodide package
+  // distribution. Install it through Pyodide's package installer after its
+  // compiled dependencies have been loaded from the pinned Pyodide release.
+  const needsPyPiPackage = [...PYPI_PACKAGES].some((name) =>
+    new RegExp(`^\\s*(?:from|import)\\s+${name}(?:\\b|\\.)`, "m").test(source),
+  );
+  if (needsPyPiPackage) {
+    await pyodide.loadPackage("micropip");
+    await pyodide.runPythonAsync("import micropip\nawait micropip.install('seaborn')");
+  }
+}
+
 async function runProject(message) {
   if (!pyodide) {
     self.postMessage({ type: "failed", error: "The Python runtime is not ready.", output: outputText });
@@ -166,7 +182,7 @@ async function runProject(message) {
     previousProjectPaths = currentProjectPaths;
 
     for (const file of safeFiles.filter((entry) => entry.path.toLowerCase().endsWith(".py"))) {
-      await pyodide.loadPackagesFromImports(file.content);
+      await loadPythonPackages(file.content);
     }
 
     blockWorkerNetworkAccess();

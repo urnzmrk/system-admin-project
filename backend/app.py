@@ -411,11 +411,11 @@ ALLOWED_CONTAINERS = {
 
 def get_db_connection():
     return mysql.connector.connect(
-        host="database",
-        port=3306,
-        database="systemdb",
-        user="systemuser",
-        password="systempassword",
+        host=os.environ.get("MYSQL_HOST", "database"),
+        port=int(os.environ.get("MYSQL_PORT", "3306")),
+        database=os.environ.get("MYSQL_DATABASE", "systemdb"),
+        user=os.environ.get("MYSQL_USER", "systemuser"),
+        password=os.environ.get("MYSQL_PASSWORD", "systempassword"),
     )
 
 

@@ -1,13 +1,13 @@
-import { Fragment, useEffect, useRef, useState } from "react";
+import { Fragment, useCallback, useEffect, useRef, useState } from "react";
 import "./App.css";
 import "./PolishedUI.css";
 
-const API_URL = ["localhost", "127.0.0.1"].includes(
-  window.location.hostname
-)
-  ? "http://192.168.56.104:5000"
-  : `http://${window.location.hostname}:5000`;
+const API_URL = import.meta.env.VITE_API_URL || "";
 const MAX_ORDER_NUMBER = 2_147_483_647;
+
+function createBlockId(type) {
+  return `${type}-${Date.now()}`;
+}
 
 const TOPIC_CONTENT_ASSETS = Object.freeze({
   1: "/topic1.txt",
@@ -418,22 +418,6 @@ function App() {
         return null;
       }
     });
-
-  useEffect(() => {
-    const token =
-      localStorage.getItem(
-        "sysadmin_token"
-      );
-
-    if (!token && user) {
-      localStorage.removeItem(
-        "sysadmin_user"
-      );
-
-      setUser(null);
-    }
-  }, [user]);
-
 
   function handleLogin(
     loggedInUser,
@@ -5286,8 +5270,7 @@ function WordTopicContent({ topic, apiFetch }) {
   const [content, setContent] = useState("");
   const [loadError, setLoadError] = useState("");
   const [customSlides, setCustomSlides] = useState(null);
-  const [activeSlide, setActiveSlide] = useState(0);
-  const [slideDirection, setSlideDirection] = useState("forward");
+  const [slidePosition, setSlidePosition] = useState({ key: "", index: 0, direction: "forward" });
   const topicNumber = Number(topic.order_number);
   const contentAsset = getTopicContentAsset(topic);
   const visualTheme = getTopicVisualTheme(topic);
@@ -5353,6 +5336,7 @@ function WordTopicContent({ topic, apiFetch }) {
   }, [apiFetch, topic.id]);
 
   const lectureText = contentAsset ? content : "";
+  const slideKey = `${contentAsset || ""}:${topicNumber}:${lectureText}`;
   const contentError = contentAsset
     ? loadError
     : `No lecture file is mapped to topic ID ${topic.id}.`;
@@ -5385,18 +5369,17 @@ function WordTopicContent({ topic, apiFetch }) {
     const normalized = normalizeSlideTitle(title);
     return normalized && array.findIndex((candidate) => normalizeSlideTitle(candidate) === normalized) === index;
   });
-  const clampSlide = (value) => Math.max(0, Math.min(slideTitles.length - 1, value));
-
-  useEffect(() => {
-    setActiveSlide(0);
-    setSlideDirection("forward");
-  }, [contentAsset, topicNumber, lectureText]);
-
-  const goToSlide = (value) => {
-    const nextSlide = clampSlide(value);
-    setSlideDirection(nextSlide >= activeSlide ? "forward" : "backward");
-    setActiveSlide(nextSlide);
-  };
+  const slideCount = slideTitles.length;
+  const activeSlide = slidePosition.key === slideKey ? slidePosition.index : 0;
+  const slideDirection = slidePosition.key === slideKey ? slidePosition.direction : "forward";
+  const goToSlide = useCallback((value) => {
+    const nextSlide = Math.max(0, Math.min(slideCount - 1, value));
+    setSlidePosition({
+      key: slideKey,
+      index: nextSlide,
+      direction: nextSlide >= activeSlide ? "forward" : "backward",
+    });
+  }, [activeSlide, slideCount, slideKey]);
 
   useEffect(() => {
     const handleKeyDown = (event) => {
@@ -5405,7 +5388,7 @@ function WordTopicContent({ topic, apiFetch }) {
     };
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [activeSlide, slideTitles.length]);
+  }, [activeSlide, goToSlide]);
 
   if (visibleCustomSlides?.length) {
     return (
@@ -5625,21 +5608,12 @@ function PeopleMentionedGallery({ content, groupIndex = null, titleText, descrip
     ? allPeople
     : allPeople.slice(groupIndex === 0 ? 0 : midpoint, groupIndex === 0 ? midpoint : allPeople.length);
 
-  useEffect(() => {
-    setSelectedPerson((current) => (
-      current && people.some((person) => person.name === current.name) ? current : null
-    ));
-  }, [people]);
-
-  useEffect(() => {
-    setGalleryIndex((current) => {
-      if (current >= people.length) return 0;
-      return current;
-    });
-  }, [people.length]);
-
+  const activeSelectedPerson = people.some((person) => person.name === selectedPerson?.name)
+    ? selectedPerson
+    : null;
+  const activeGalleryIndex = people.length ? galleryIndex % people.length : 0;
   const repeatedPeople = people.length ? [...people, ...people, ...people] : [];
-  const offsetIndex = people.length ? people.length + (galleryIndex % people.length) : 0;
+  const offsetIndex = people.length ? people.length + activeGalleryIndex : 0;
 
   const moveGallery = (direction) => {
     setGalleryIndex((current) => {
@@ -5683,7 +5657,7 @@ function PeopleMentionedGallery({ content, groupIndex = null, titleText, descrip
             {repeatedPeople.map((person, index) => (
               <button
                 type="button"
-                className={`person-card${selectedPerson?.name === person.name ? " is-selected" : ""}`}
+                className={`person-card${activeSelectedPerson?.name === person.name ? " is-selected" : ""}`}
                 key={`${person.name}-${index}`}
                 onClick={() => setSelectedPerson(person)}
                 aria-label={`View details for ${person.name}`}
@@ -5704,27 +5678,27 @@ function PeopleMentionedGallery({ content, groupIndex = null, titleText, descrip
         </button>
       </div>
 
-      {selectedPerson && (
+      {activeSelectedPerson && (
         <div className="person-detail" aria-live="polite">
           <button
             type="button"
             className="person-detail__close"
             onClick={() => setSelectedPerson(null)}
-            aria-label={`Close details for ${selectedPerson.name}`}
+            aria-label={`Close details for ${activeSelectedPerson.name}`}
           >
             Close
           </button>
           <div className="person-detail__content">
-            <img src={selectedPerson.image} alt={`${selectedPerson.name}, ${selectedPerson.role}`} className="person-detail__image" />
+            <img src={activeSelectedPerson.image} alt={`${activeSelectedPerson.name}, ${activeSelectedPerson.role}`} className="person-detail__image" />
             <div className="person-detail__body">
               <span className="section-label">PERSON PROFILE</span>
-              <h3>{selectedPerson.name}</h3>
-              <p className="person-detail__role">{selectedPerson.role}</p>
-              <p className="person-detail__summary">{selectedPerson.contribution}</p>
+              <h3>{activeSelectedPerson.name}</h3>
+              <p className="person-detail__role">{activeSelectedPerson.role}</p>
+              <p className="person-detail__summary">{activeSelectedPerson.contribution}</p>
               <dl className="person-card__facts">
-                <div><dt>Born</dt><dd>{selectedPerson.birthYear}</dd></div>
-                <div><dt>Contribution</dt><dd>{selectedPerson.contribution}</dd></div>
-                <div><dt>Year</dt><dd>{selectedPerson.contributionYear}</dd></div>
+                <div><dt>Born</dt><dd>{activeSelectedPerson.birthYear}</dd></div>
+                <div><dt>Contribution</dt><dd>{activeSelectedPerson.contribution}</dd></div>
+                <div><dt>Year</dt><dd>{activeSelectedPerson.contributionYear}</dd></div>
               </dl>
             </div>
           </div>
@@ -7817,7 +7791,6 @@ function LectureContent({
 function ActualTopicSlideVisual({ slide, topic, lectureText, selectedBlockId = null }) {
   const sections = lectureText ? parseTopic11Lecture(lectureText) : [];
   const visualTheme = getTopicVisualTheme(topic);
-  const displayTitle = slide.title || topic.title;
   const inferredKind = slide.kind || (
     normalizeSlideTitle(slide.title) === "welcome" ? "welcome"
       : normalizeSlideTitle(slide.title).includes("people behind") ? "people"
@@ -7908,9 +7881,8 @@ function SlideEditor({ apiFetch, topic, onClose, onSaved }) {
   const [dragging, setDragging] = useState(null);
   const [selectedBlockId, setSelectedBlockId] = useState(null);
   const [resizing, setResizing] = useState(null);
-  const [slideSelected, setSlideSelected] = useState(false);
   const canvasRef = useRef(null);
-  const initialSlidesRef = useRef("");
+  const [initialSlides, setInitialSlides] = useState("");
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -7967,7 +7939,7 @@ function SlideEditor({ apiFetch, topic, onClose, onSaved }) {
         if (savedData.slides.length > 0) {
           if (active) {
             setSlides(savedData.slides);
-            initialSlidesRef.current = JSON.stringify(savedData.slides);
+            setInitialSlides(JSON.stringify(savedData.slides));
           }
           return;
         }
@@ -8026,7 +7998,7 @@ function SlideEditor({ apiFetch, topic, onClose, onSaved }) {
     setResizing(null);
   };
 
-  const hasUnsavedChanges = JSON.stringify(slides) !== initialSlidesRef.current;
+  const hasUnsavedChanges = JSON.stringify(slides) !== initialSlides;
 
   const requestClose = () => {
     if (!hasUnsavedChanges || window.confirm("Cancel editing and discard all unsaved changes?")) {
@@ -8037,7 +8009,6 @@ function SlideEditor({ apiFetch, topic, onClose, onSaved }) {
   const startDragging = (event, block) => {
     if (!canvasRef.current) return;
     event.stopPropagation();
-    setSlideSelected(false);
     setSelectedBlockId(block.id);
     if (event.target !== event.currentTarget) return;
     const rect = canvasRef.current.getBoundingClientRect();
@@ -8069,7 +8040,7 @@ function SlideEditor({ apiFetch, topic, onClose, onSaved }) {
   const duplicateSelectedBlock = () => {
     const block = slide?.blocks.find((item) => item.id === selectedBlockId);
     if (!block) return;
-    const copy = { ...block, id: `${block.type}-${Date.now()}`, custom: true, x: Math.min(90, Number(block.x || 0) + 4), y: Math.min(90, Number(block.y || 0) + 4) };
+    const copy = { ...block, id: createBlockId(block.type), custom: true, x: Math.min(90, Number(block.x || 0) + 4), y: Math.min(90, Number(block.y || 0) + 4) };
     updateSlide((current) => ({ ...current, blocks: [...current.blocks, copy] }));
     setSelectedBlockId(copy.id);
   };
@@ -8080,7 +8051,7 @@ function SlideEditor({ apiFetch, topic, onClose, onSaved }) {
       blocks: [
         ...slide.blocks,
         {
-          id: `text-${Date.now()}`,
+          id: createBlockId("text"),
           custom: true,
           type: "text",
           text: "New slide text",
@@ -8114,7 +8085,7 @@ function SlideEditor({ apiFetch, topic, onClose, onSaved }) {
           blocks: [
             ...slide.blocks,
             {
-              id: `image-${Date.now()}`,
+              id: createBlockId("image"),
               custom: true,
               type: "image",
               src: reader.result,
@@ -8202,7 +8173,7 @@ function SlideEditor({ apiFetch, topic, onClose, onSaved }) {
               >
                 Remove selected
               </button>
-              <button type="button" className="secondary-action" onClick={() => setSlides((current) => [...current, { id: `slide-${Date.now()}`, title: "New slide", heightScale: 1, blocks: [] }])}>+ Add slide</button>
+              <button type="button" className="secondary-action" onClick={() => setSlides((current) => [...current, { id: createBlockId("slide"), title: "New slide", heightScale: 1, blocks: [] }])}>+ Add slide</button>
               <button type="button" className="table-delete" onClick={removeActiveSlide}>Remove slide</button>
               <button type="button" className="secondary-action" onClick={requestClose}>Cancel</button>
               <button type="button" className="primary-action" onClick={saveSlides} disabled={saving}>{saving ? "Saving..." : "Save slides"}</button>
@@ -8212,7 +8183,6 @@ function SlideEditor({ apiFetch, topic, onClose, onSaved }) {
               ref={canvasRef}
               onPointerDown={(event) => {
                 if (event.target === event.currentTarget || event.target.closest(".slide-editor__actual-preview")) {
-                  setSlideSelected(true);
                   setSelectedBlockId(null);
                 }
               }}
