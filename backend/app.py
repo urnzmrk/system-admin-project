@@ -683,7 +683,6 @@ def create_token(user):
         "name": user["name"],
         "email": user["email"],
         "role": user["role"],
-        "profile_picture": user.get("profile_picture"),
         "iat": now,
         "exp": now + timedelta(
             hours=TOKEN_EXPIRATION_HOURS

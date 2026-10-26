@@ -367,6 +367,16 @@ async function apiFetch(url, options = {}) {
       return null;
     }
 
+    // Older tokens included the full base64 profile picture and can exceed
+    // the proxy's request-header limit. Clear those sessions and issue a
+    // compact token at the next login.
+    if (response.status === 431) {
+      localStorage.removeItem("sysadmin_token");
+      localStorage.removeItem("sysadmin_user");
+      window.location.href = "/";
+      return null;
+    }
+
     return response;
   } catch (error) {
     console.error(
