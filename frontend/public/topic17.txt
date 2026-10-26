@@ -1,0 +1,74 @@
+# Topic 17 — LINUX PERMISSIONS, OWNERSHIP, ACCESS MODES & FILE SECURITY
+
+## 1. Why Linux Permissions Matter
+Linux permissions control who can read, modify, or execute files and directories. They are a fundamental security mechanism because Linux is a multi-user system and many services run under separate accounts.
+Permissions work together with ownership. Every file is associated with an owner user and a group, while access for all other users is represented separately.
+## 2. Owner, Group and Other
+Divides access into three classes: user (the owner), group, and other. "All" can be used conceptually to refer to all three classes together. A newly created file is normally owned by the user who created it and associated with that user's group according to system rules.
+Groups allow several users to share controlled access without making files universally accessible.
+## 3. Read, Write and Execute
+## 4. Reading a Permission String
+A long ls listing shows file type and permissions in a compact string such as -rwxr-xr-x. The first character describes the file type, while the next nine characters are divided into three groups of rwx permissions for owner, group, and others.
+This notation allows an administrator to understand access at a glance.
+-rwxr-xr-x │││ │││ │││ │││ │││ └── others │││ └──── group └──────── owner
+## 5. Numeric Permission Values
+Linux permissions can be expressed numerically. Read has value 4, write has value 2, execute has value 1, and no permission has value 0. The values are added within each owner/group/other position.
+For example, 7 means read+write+execute, 6 means read+write, 5 means read+execute, and 4 means read only.
+7 = 4 + 2 + 1 = rwx6 = 4 + 2 = rw-5 = 4 + 1 = r-x4 = 4 = r-- 755 = rwxr-xr-x644 = rw-r--r--
+## 6. chmod — Change Mode
+Chmod changes file or directory permissions. It can use numeric mode, such as 754, or symbolic mode, such as u=rwx,g=rx,o=r. also demonstrates recursive changes with -R.
+Administrators should assign only the access that is required. Giving write or execute permission broadly can create security and reliability problems.
+Chmod 754 filenamechmod 644 file.txtchmod -R 755 directorychmod u=rw image.jpgchmod o-wx netconfig.confchmod o+r filename
+## 7. Symbolic Operators
+Symbolic chmod uses + to add permissions, - to remove permissions, and = to set the exact permissions for the specified class. The classes are commonly represented by u for user, g for group, and o for other.
+This form is useful when the administrator wants to change only one part of the permission set without recalculating a full numeric mode.
+## 8. chown — Change Ownership
+Chown changes the owner and optionally the group associated with files or directories. Recursive ownership changes can be applied to directory trees.
+Changing ownership is different from changing permissions. chmod changes what the current owner/group/other may do; chown changes which user or group occupies those ownership roles.
+Sudo chown user file.txtsudo chown user:group file.txtsudo chown -R user:group Documents
+## 9. Permissions as a Security Boundary
+Correct permissions help protect configuration files, user data, service data, and executable programs. Administrators should avoid solving access problems by making everything world-writable or executable. Instead, ownership and group membership should be designed so the right users receive the right access.
+This principle connects directly to sudo, server hardening, and least-privilege administration.
+## 10. Ownership Model: User, Group and Other
+Linux access permissions are evaluated in relation to the file owner, the file's group, and all other users. This creates three basic permission classes.
+Ownership and permissions work together: changing a permission without understanding the owner or group can produce unexpected access results.
+## 11. Read Permission
+For a regular file, read permission allows the contents to be read. For a directory, read permission allows directory entries to be listed.
+Directory behavior depends on combinations of read, write, and execute permissions rather than one permission alone.
+## 12. Write Permission
+For a regular file, write permission allows the file's contents to be modified. For a directory, write permission allows directory entries to be created, deleted, or renamed when other required permissions are also present.
+Directory write access is therefore security-sensitive because it can affect files inside the directory.
+## 13. Execute Permission
+For a regular file, execute permission allows the operating system to run it as a program or script when other requirements are satisfied. For a directory, execute permission allows traversal and access to entries by name.
+This different directory meaning is essential for understanding why a directory can sometimes be entered even when it cannot be listed.
+## 14. Permission Strings
+A long listing may show permissions such as `-rwxr-xr-x`. The first character indicates file type, and the following nine characters are grouped as owner, group, and other permissions.
+Reading the string from left to right provides a compact view of access control.
+## 15. Numeric Permission Values
+Numeric permissions use `4` for read, `2` for write, and `1` for execute. Adding the values creates a permission digit: `7` means rwx, `6` means rw-, `5` means r-x, and `4` means r--.
+Three digits normally represent owner, group, and others.
+## 16. Common Modes: 644 and 755
+Mode `644` gives the owner read/write access and gives group and others read-only access. It is common for ordinary text files that should not be executable.
+Mode `755` gives the owner full access and gives group and others read/execute access. It is common for directories and executable programs that need to be accessible to others.
+## 17. Additional Permission Modes
+Examples such as `666` and `774` illustrate how numeric permissions combine. `666` grants read/write to all three classes, while `774` grants full access to owner and group and read-only access to others.
+Administrators should choose modes based on real access needs rather than memorizing numbers without understanding them.
+## 18. Symbolic chmod
+`chmod` can change permissions symbolically using classes such as `u`, `g`, and `o` and operators such as `+`, `-`, and `=`.
+For example, `chmod o-w file` removes write permission from others without changing the owner or group modes.
+## 19. Numeric chmod
+`chmod 754 file` sets all three permission classes in one command. Numeric mode is compact and convenient when the complete desired permission state is known.
+Symbolic mode is often safer when only one specific permission should change.
+## 20. Recursive Permission Changes
+The `-R` option applies changes recursively through a directory tree. Recursive permission changes can affect large numbers of files and should therefore be planned carefully.
+A single incorrect recursive command can make applications fail or expose sensitive data.
+## 21. Changing Ownership with chown
+`chown` changes the owner and optionally the group of files or directories. It can also operate recursively.
+Ownership changes are common after moving data between users, restoring files, or preparing application directories, but they should preserve the intended security model.
+## 22. Key Takeaways
+Linux permissions are evaluated for owner, group, and others.
+R, w, and x have different meanings on files and directories.
+Chmod changes access modes; chown changes ownership.
+Numeric modes are built from 4=read, 2=write, 1=execute.
+Correct ownership and permissions are basic Linux security controls.
+Core Principle: Linux permissions are a compact security model built from ownership, user/group/other classes, and read/write/execute access bits.

@@ -1,0 +1,58 @@
+# Topic 20 — SERVER FUNDAMENTALS, CLIENT-SERVER COMPUTING & NETWORK SERVER ARCHITECTURE
+
+## 1. What is a Server?
+A server is hardware or software that provides functionality or resources to other programs or devices called clients. A server can share files, host websites, provide authentication, assign network addresses, store databases, process applications, or perform many other services.
+What makes a computer a server is primarily the function it performs. A standard computer can act as a server if it runs software that provides a service to clients.
+## 2. The Client-Server Model
+Client-server systems are commonly based on a request-response model. A client sends a request, the server performs an action, and the server returns a result or acknowledgement.
+The client and server can run on different machines across a network, or in some cases on the same machine as separate processes.
+Client │ request ↓Server │ process / resource ↓Response back to client
+## 3. Server Hardware
+Server-class hardware is usually designed for reliability, continuous operation, and heavier workloads. Servers may contain more memory, redundant storage, stronger networking, or components designed for 24/7 use.
+However, the function is more important than the hardware label. A powerful workstation is not automatically a server unless it is serving resources or services to clients.
+## 4. Network Servers and the 1990s
+Network servers became increasingly common in the early 1990s as organizations used personal-computer hardware to provide services that had previously been hosted on larger mainframes or minicomputers.
+This shift helped make distributed client-server computing common in businesses and schools. Shared storage, email, printing, and application services could be provided over local networks.
+## 5. Server vs Workstation
+A workstation is generally a computer used directly by an individual to perform work. A server is a computer or service used to provide shared resources to other systems or users. The same hardware architecture can sometimes serve either role.
+Servers are often configured for reliability, remote administration, controlled access, and service availability rather than personal interactive use.
+## 6. Multiple Clients and Multiple Services
+A single server can serve many clients. A single client can also use many servers—for example, DNS for name resolution, DHCP for an IP address, a web server for a website, a database server for application data, and a mail server for email.
+Likewise, one physical server can host multiple services if capacity and security allow it. Virtualization can also divide one physical machine into several virtual servers.
+## 7. Server Administration Responsibilities
+Running a server means more than installing software. Administrators must configure networking, user access, permissions, service startup, firewalls, updates, logs, storage, backups, and security settings. The service should be monitored so failures are detected and corrected.
+This is why the server topics in connect directly to Linux permissions, package management, network configuration, and security hardening.
+## 8. What is a Server?
+A server is hardware or software that provides functionality to other programs or devices called clients. The same computer can host one server process or many different server services.
+The defining characteristic is the service being provided rather than the physical appearance of the machine.
+## 9. Client-Server Model
+In the client-server model, a client sends a request, the server processes the request, and a response is returned. This request-response pattern appears in web browsing, DNS, email, file sharing, databases, and remote administration.
+The model can operate across a network or even between processes on the same computer.
+## 10. Server as Hardware and Software
+The word server can describe a physical or virtual computer designed to run services, but it can also refer to the software providing a specific service.
+For example, Apache is web-server software, while the machine running Apache may also be called a web server.
+## 11. Network Servers in the 1990s
+Network servers became increasingly common in the early 1990s as organizations used personal-computer-class systems to provide services previously associated with larger mainframes or minicomputers.
+This change contributed to the growth of distributed client-server computing.
+## 12. Server vs Workstation
+A workstation is typically used directly by one person for interactive work, while a server provides shared resources or services to clients.
+The distinction is functional: ordinary hardware can act as a server if it is configured to provide a network service.
+## 13. Server Hardware Characteristics
+Servers often use more memory, redundant storage, reliable power, multiple network interfaces, and components designed for continuous operation.
+However, virtualization and cloud computing also allow many logical servers to run on shared physical hardware.
+## 14. Shared Resources
+Servers can provide disk space, applications, authentication, websites, databases, printing, email, remote access, or computation.
+Centralizing a resource allows many clients to use it while administrators manage security, backup, and availability in one place.
+## 15. Multiple Clients and Multiple Services
+One server can serve many clients, and one client can use many servers. A single Linux host can also provide multiple services such as SSH, web hosting, DNS, and file sharing.
+Each additional service increases functionality but also increases configuration and security responsibilities.
+## 16. Availability and Reliability
+Server administration focuses heavily on availability because clients depend on the service. Updates, configuration changes, capacity limits, hardware failures, and security incidents can all interrupt access.
+Reliable server operation therefore combines correct configuration with monitoring, maintenance, and recovery planning.
+## 17. Key Takeaways
+A server provides services or resources to clients.
+Client-server systems commonly use request-response communication.
+Server function is more important than whether the hardware is marketed as a server.
+Network servers became widespread as organizations moved services to networked PC-class systems.
+Effective server administration requires networking, permissions, software management, monitoring, and security.
+Core Principle: A server is defined by the service it provides to clients, not merely by special hardware.

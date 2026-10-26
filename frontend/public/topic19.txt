@@ -1,0 +1,74 @@
+# Topic 19 — LINUX SERVER INSTALLATION, HOST IDENTITY, IP CONFIGURATION & NETWORK SETUP
+
+## 1. Installing a Linux Server
+A practical server installation workflow can use a Linux Server ISO and VirtualBox. A virtual machine is created, the ISO is attached, the VM is booted, and basic installation options such as language and keyboard layout are selected.
+Using a virtual machine is useful for training because the server can be reset, cloned, and isolated without changing the host computer.
+## 2. Hostnames and /etc/hostname
+A hostname is the computer's network name. Linux provides the hostname command to display it, /etc/hostname to store the persistent name on many systems, and hostnamectl on systemd-based distributions for managing the hostname.
+Clear hostnames are important in environments with multiple servers because administrators need to identify which machine they are configuring.
+Hostnamesudo nano /etc/hostnamesudo hostname new-hostnamehostnamectl set-hostname valdez-laptop
+## 3. The /etc/hosts File
+/etc/hosts is a local text file used to map names to IP addresses. It provides name resolution without relying on DNS and can be useful for small networks, testing, or defining local aliases.
+Because /etc/hosts is local to the machine, changes there do not automatically become visible to every other device on the network.
+Sudo nano /etc/hosts127.0.0.1 new-hostname
+## 4. DHCP vs Static IP Addressing
+DHCP automatically provides network settings such as IP address, gateway, and DNS information. Static addressing assigns fixed values manually. Servers commonly use predictable addresses so clients and other services know where to find them.
+Demonstrates both DHCP and static addressing on Ubuntu Server using Netplan configuration files.
+## 5. Netplan on Ubuntu Server
+Netplan uses YAML configuration files to define network interfaces on modern Ubuntu Server systems. After editing the configuration, sudo netplan apply activates the changes.
+YAML indentation matters. Administrators should verify interface names such as enp0s3 and validate the addresses, default route, and DNS servers before applying changes.
+Sudo nano /etc/netplan/00-installer-config.yamlsudo netplan apply
+## 6. Example Static Configuration
+Network: version: 2 ethernets: enp0s3: dhcp4: no addresses: - 192.168.1.200/24 routes: - to: default via: 192.168.1.1 nameservers: addresses: - 8.8.8.8 - 8.8.4.4
+## 7. Temporary Address Changes with ifconfig
+Shows ifconfig syntax for manually changing an IP address and setting a netmask. It notes that these changes are not persistent and generally last only for the current session or until networking is restarted.
+This distinction between temporary runtime state and persistent configuration is important across Linux administration.
+Sudo ifconfig eth0 192.168.100.100 netmask 255.255.255.0
+## 8. Default Gateway and Routing
+A default gateway is the router used when traffic is destined for networks outside the local subnet. demonstrates adding a default gateway with the route command and viewing the routing table.
+If a server has a correct IP address but no valid route to external networks, local communication may work while Internet or remote-network communication fails.
+Sudo route add default gw 192.168.0.253 eth0route -n
+## 9. Restarting and Verifying Networking
+After network configuration changes, administrators may restart the networking service or apply configuration using the distribution's networking tools. shows systemctl, traditional init scripts, ifconfig, and ip addr.
+Verification should always follow configuration. An administrator should confirm the interface address, routing, DNS resolution, and connectivity rather than assuming a saved configuration is correct.
+Sudo systemctl restart networking.serviceip addrping gateway_address
+## 10. Linux Server ISO and Virtual Installation
+A server installation can begin by downloading an appropriate Linux server ISO and attaching it to a virtual machine such as VirtualBox.
+Virtual machines make it possible to build repeatable administration laboratories without dedicating separate physical hardware.
+## 11. The hosts File
+`/etc/hosts` provides local hostname-to-IP mappings. It is consulted as part of name resolution and can be useful for small networks or testing.
+Entries can assign memorable names to IP addresses even when a DNS server is not involved.
+## 12. Hostname
+A hostname identifies a computer on a network and within system administration. Commands such as `hostname` display it, while configuration files or `hostnamectl` can change it.
+Consistent hostnames help administrators identify servers in logs, prompts, monitoring systems, and network records.
+## 13. Network Interfaces
+Linux network interfaces represent physical or virtual network connections. Interface names may appear as `eth0`, `enp0s3`, `wlan0`, or other predictable naming patterns.
+Administrators must identify the correct interface before assigning addresses or troubleshooting connectivity.
+## 14. DHCP Addressing
+With DHCP, a client requests network configuration from a DHCP server. The server may provide an IP address, subnet information, default gateway, DNS servers, and lease duration.
+DHCP reduces manual configuration and is common for client systems.
+## 15. Static Addressing
+A static address is configured manually and remains predictable. Servers commonly use stable addresses so clients and other services can consistently locate them.
+Static configuration requires correct address, prefix/netmask, gateway, and DNS settings.
+## 16. Netplan
+Modern Ubuntu Server releases use Netplan configuration files in `/etc/netplan/`. YAML syntax describes interfaces and whether they use DHCP or static settings.
+After editing, `sudo netplan apply` activates the configuration. YAML indentation must be correct.
+## 17. Default Gateway
+The default gateway is the router used when the destination is outside the local network. A system can have a correct local IP address and still fail to reach external networks if the gateway is wrong.
+Routing commands help verify which gateway and interface are being used.
+## 18. DNS Configuration
+DNS servers translate names such as domain names into IP addresses. Netplan configuration can include nameserver addresses.
+A system may have working IP connectivity but appear 'offline' to users if DNS resolution is broken.
+## 19. Temporary ifconfig Changes
+`ifconfig` commands can assign addresses temporarily. Such changes may disappear after reboot because they do not modify the persistent network configuration.
+Persistent server configuration should be stored in the distribution's supported network configuration system.
+## 20. Restarting and Testing Networking
+After configuration changes, networking services may need to be restarted or settings reapplied. Commands such as `ip addr`, `ifconfig`, and connectivity tests help confirm the result.
+Remote administrators should be cautious: an incorrect network change can immediately disconnect an SSH session.
+## 21. Key Takeaways
+Linux servers can be installed safely in virtual machines for practice.
+Hostnames identify systems; /etc/hosts provides local name-to-address mappings.
+DHCP provides automatic settings while static configuration provides predictable server addressing.
+Netplan is used on modern Ubuntu Server systems for persistent network configuration.
+IP address, route, DNS, and connectivity should all be verified after changes.
+Core Principle: A server must have predictable identity and network configuration before clients can reliably depend on its services.

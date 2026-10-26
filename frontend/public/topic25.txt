@@ -1,0 +1,67 @@
+# Topic 25 — CYBERSECURITY, ETHICAL HACKING, HACKER CLASSIFICATIONS & ATTACK TARGETS
+
+## 1. Cybersecurity and Ethical Hacking
+Ethical hacking is the authorized practice of testing systems for vulnerabilities so weaknesses can be identified and corrected. The same technical knowledge can be used maliciously, which is why permission, scope, and intent are essential distinctions.
+Contrasts ethical hacking with unethical hacking, where vulnerabilities are used to gain unauthorized access, steal information, damage systems, or perform other malicious activity.
+## 2. Ethical vs Unethical Hacking
+Ethical hackers work with permission and without malicious intent. Organizations may hire them to test systems, networks, or applications before a criminal attacker finds the weaknesses. Their work is expected to end with findings and recommendations that improve security.
+Unethical hacking is unauthorized. Even when the technical action is similar—scanning, exploiting, or recovering passwords—the legal and ethical status changes when there is no authorization.
+## 3. White Hat, Black Hat and Gray Hat
+White-hat hackers are cybersecurity professionals or authorized testers who assess systems with permission. Black-hat hackers seek unauthorized access with harmful or criminal intent. Gray-hat hackers fall between these categories and may test or access systems without clear authorization even when their stated intent is not purely malicious.
+The safest rule is that authorization must be explicit. Good intentions do not replace permission.
+## 4. Script Kiddies, Green Hats, Blue Hats and Red Hats
+Includes several additional classifications. Script kiddies are described as inexperienced users who rely heavily on scripts or tools created by others. Green hats are learners who want to develop hacking skills. Blue hats are described in as using hacking for attention or personal conflict. Red hats are described as aggressive actors who target black-hat attackers.
+These labels are informal and definitions can vary, so they are best used to discuss motivations and skill levels rather than as strict professional categories.
+## 5. State-sponsored Hackers and Hacktivists
+State or nation-sponsored hackers operate on behalf of governments and may pursue intelligence, strategic, or security objectives. Hacktivists use hacking in connection with political or social causes.
+Also discusses malicious insiders and whistleblowers as people within an organization who disclose information. The intent and authorization surrounding disclosure determine whether the activity is treated as malicious, ethical, or protected under another framework.
+## 6. Types of Hacking Targets
+Groups hacking activity by target: website hacking, network hacking, email hacking, password hacking, and computer hacking. These categories describe the system or information being targeted rather than one specific technique.
+For ethical testing, each target must be covered by the authorized scope. Permission to test one web application does not automatically authorize testing the organization's email, network infrastructure, or employee accounts.
+## 7. Website, Network, Email, Password and Computer Security
+## 8. Legal and Ethical Scope
+An ethical-hacking engagement should define the systems that may be tested, the time period, the methods permitted, the data that may be accessed, and who receives the results. This prevents an authorized test from becoming indistinguishable from an unauthorized attack.
+Repeatedly warns about unauthorized reconnaissance and practice on real systems. A personal lab is recommended so students can develop skills without creating legal or operational risk.
+## 9. What is Ethical Hacking?
+Ethical hacking is authorized security testing performed to identify weaknesses so they can be corrected. The same technical concepts that could be abused are used within an agreed scope and for a defensive purpose.
+Authorization is essential. Testing a system without permission is not ethical simply because the tester claims good intentions.
+## 10. What is Unethical Hacking?
+Unethical hacking involves unauthorized access, exploitation, theft, destruction, disruption, or other malicious activity.
+contrasts this with authorized testing to emphasize the legal and ethical boundary.
+## 11. White Hat Hackers
+White hat hackers are security professionals who are authorized to test systems. They identify weaknesses and report them so organizations can improve security.
+Their work may include vulnerability assessment, penetration testing, auditing, and security validation.
+## 12. Black Hat Hackers
+Black hat hackers attack systems without authorization and with malicious or criminal intent. They may steal data, damage systems, deploy malware, or abuse access for financial or personal gain.
+Defensive security attempts to anticipate and reduce these threats.
+## 13. Gray Hat Hackers
+Gray hat is a label used for activity that falls between authorized white-hat work and clearly malicious black-hat activity. The defining problem is often lack of permission even when the person believes the intent is helpful.
+For professional practice, explicit authorization and defined scope are safer than relying on informal labels.
+## 14. Script Kiddies and Green Hats
+Script kiddies are described as inexperienced users who rely heavily on tools or scripts created by others. Green hats are learners who are actively trying to build hacking and security knowledge.
+Skill level does not change legal responsibility; authorization is required regardless of experience.
+## 15. Blue and Red Hat Labels
+uses blue-hat and red-hat labels to describe additional motivations and behaviors. These terms are less standardized than white, black, and gray hat and may be used differently in other sources.
+They should therefore be presented as course classifications rather than universal professional categories.
+## 16. State-Sponsored Hackers
+State-sponsored actors conduct cyber operations in support of national objectives such as intelligence gathering, strategic advantage, or military goals.
+These operations can involve substantial resources and advanced capabilities.
+## 17. Hacktivists
+Hacktivists use cyber activity to promote political or social causes. Targets may include government, corporate, or public-facing systems.
+Motivation does not automatically make unauthorized intrusion legal or ethical.
+## 18. Insiders and Whistleblowers
+Insider threats involve people who already have legitimate organizational access and then misuse or expose information. Whistleblowing can involve different legal and ethical circumstances from malicious insider activity.
+From a security perspective, organizations must control and audit internal access as well as external threats.
+## 19. Website, Network, Email, Password and Computer Hacking
+categorizes hacking by target: websites and web servers, networks, email accounts, passwords, and computer systems.
+These categories help organize security risks, but real incidents often involve several categories together.
+## 20. Ethics, Authorization and Scope
+Professional penetration testing should define the systems that may be tested, permitted techniques, time window, data-handling rules, communication contacts, and reporting expectations.
+Clear scope protects both the organization and the tester and keeps security work focused on improvement rather than unauthorized access.
+## 21. Key Takeaways
+Ethical hacking requires permission and a defensive purpose.
+White-, black-, and gray-hat labels primarily describe authorization and intent.
+Other hacker labels describe skill level, motivation, or affiliation.
+Hacking can target websites, networks, email, passwords, and computers.
+Authorization and scope must be established before testing begins.
+Core Principle: Ethical hacking is distinguished from malicious hacking by authorization, scope, purpose, and responsible reporting.

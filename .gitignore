@@ -1,0 +1,42 @@
+# Environment variables and secrets
+.env
+.env.*
+!.env.example
+
+# Python virtual environments
+.venv/
+venv/
+env/
+
+# Python cache files
+__pycache__/
+*.py[cod]
+
+# Node.js dependencies
+node_modules/
+frontend/node_modules/
+
+# Generated frontend builds
+frontend/dist/
+dist/
+
+# Database backups and local database dumps
+/database-backups/
+/systemdb_data.sql
+/topics_subtopics_backup.sql
+/topics_subtopics_backup_before_fix.sql
+
+# Logs
+*.log
+npm-debug.log*
+
+# Operating system files
+.DS_Store
+Thumbs.db
+
+# Coverage and test artifacts
+.coverage
+htmlcov/
+
+# Local editor files
+.vscode/

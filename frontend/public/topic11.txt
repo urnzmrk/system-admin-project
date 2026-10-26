@@ -1,0 +1,63 @@
+# Topic 11 — LINUX SHELLS, TERMINAL ENVIRONMENT & COMMAND-LINE INTERACTION
+
+## 1. What is a Shell?
+A shell is a program that acts as an interface between the user and the operating-system kernel. It receives commands, starts programs, passes requests to the operating system, and displays output. In Linux administration, the shell is one of the most important tools because almost every system function can be controlled from the command line.
+The terminal is the application or interface through which the user interacts with a shell. The terms terminal, console, shell, and command line are sometimes used loosely, but technically the shell is the command interpreter.
+## 2. Command Flow
+User types a command ↓ Shell ↓Operating-system services / Kernel ↓ Hardware ↓Output returns to the shell
+## 3. Opening and Using the Terminal
+Shows CTRL+ALT+T as a common shortcut for opening a terminal in Linux desktop environments. Commands are executed by pressing Enter. Linux commands are case-sensitive, so ls, LS, and Ls are not automatically treated as the same command.
+Command syntax normally consists of the command name followed by options and arguments. Administrators should read commands carefully because small changes in options can change the effect of an operation.
+Command [options] [arguments] ls -l /etccp -r source_directory destination_directory
+## 4. Bourne Shell (sh)
+The Bourne shell was developed at AT&T Bell Labs by Steve Bourne and is regarded as one of the earliest important Unix shells. It is represented by sh and historically became a foundation for Unix shell scripting.
+The original Bourne shell lacked some interactive conveniences later shells introduced, such as command history and richer arithmetic features.
+## 5. Bash
+Bash stands for GNU Bourne-Again Shell. It was designed to be compatible with the Bourne shell while adding useful features from other shells such as the Korn shell and C shell. Bash supports command history, interactive editing with arrow keys, scripting, variables, functions, and many other features.
+Because Bash is common in Linux administration, understanding its prompt and command behavior helps with many later administrative commands.
+## 6. C Shell, Korn Shell, Zsh and Tcsh
+The C shell (csh), created by Bill Joy, introduced a syntax influenced by the C programming language and added interactive features such as command history and aliases. The Korn shell (ksh), developed by David Korn, extended Bourne-shell concepts with arithmetic and interactive features.
+Zsh provides extensive customization, completion, plugins, and theming. Tcsh is an enhanced C-shell-compatible environment with command-line editing, completion, and job-control features. also mentions Fish as another friendly interactive shell.
+## 7. Root and Non-root Prompts
+Unix-like systems traditionally use different prompt symbols to help indicate privilege level. A non-root user commonly sees a $ prompt, while root commonly uses #. The exact prompt can be customized, but the convention is useful because it reminds administrators when they are operating with elevated privileges.
+Commands run as root can modify critical system files, users, services, and permissions, so administrators should be especially careful when working at a root shell.
+## 8. Why the Command Line Matters
+The command line is efficient for remote administration, repeatable operations, troubleshooting, and working on servers without graphical interfaces. Commands can also be combined with pipes, redirection, scripts, and filters to perform tasks that would require many graphical steps.
+Commands for users, permissions, packages, networking, services, and ethical-hacking tools all depend on basic terminal literacy.
+## 9. Terminal, Console and Shell
+The terms terminal, console, and shell are related but not identical. A terminal is the interface through which text input and output are displayed, while the shell is the command interpreter that reads commands and starts programs.
+In a desktop Linux environment, opening a terminal window normally starts a shell inside a terminal emulator.
+## 10. Command Interpretation
+When a user types a command, the shell parses the text, determines whether it is a built-in command or an external program, handles redirection and expansions, and then executes the requested operation.
+The output is returned to the terminal unless it is redirected elsewhere.
+## 11. Case Sensitivity
+Linux command names, filenames, and many configuration values are case-sensitive. `File.txt`, `file.txt`, and `FILE.TXT` can therefore be different names.
+This behavior is important when troubleshooting scripts, paths, and configuration files.
+## 12. Bourne Shell (sh)
+The Bourne shell was developed by Steve Bourne at Bell Labs and became an important early Unix shell. It established syntax that influenced later shells and shell scripting.
+Its path is commonly `/bin/sh`, although on modern systems `/bin/sh` may point to another compatible shell implementation.
+## 13. Bash
+Bash, the GNU Bourne-Again Shell, was created as a Bourne-compatible shell with interactive improvements such as command history and editing.
+Bash is common on Linux and is especially important for administration and shell scripting.
+## 14. C Shell and tcsh
+The C shell introduced syntax influenced by the C programming language and features such as aliases and command history. tcsh extended the C shell with improved command-line editing and completion.
+These shells show that Linux and Unix-like systems support multiple command-interpreter styles.
+## 15. Korn Shell
+The Korn shell was developed by David Korn and combined Bourne-shell compatibility with additional programming and interactive features.
+It became important in commercial Unix environments and influenced later shell design.
+## 16. Z Shell
+Zsh is a modern interactive shell with advanced completion, globbing, plugin support, theming, and customization.
+It is popular among users who want a highly configurable interactive environment while retaining Bourne-like scripting concepts.
+## 17. Shell Prompts and User Identity
+Traditional prompts help indicate privilege level: `$` commonly represents an ordinary user and `#` commonly represents root. Actual prompts can be customized extensively.
+Administrators should pay attention to the current user before running commands because the same command can have very different effects when executed as root.
+## 18. Command Flow to the Kernel
+A useful model is `Command → Shell → Kernel → Hardware`. The shell interprets the user's request, programs make system calls, and the kernel performs protected operations on system resources.
+This model connects basic terminal use to the deeper operating-system architecture discussed earlier.
+## 19. Key Takeaways
+A shell interprets commands and connects the user to operating-system functions.
+The terminal is the interface through which a shell is commonly used.
+Linux commands are case-sensitive.
+Bash is a major Linux shell, while sh, csh, ksh, zsh, tcsh and other shells provide different features.
+Command-line skills are central to system administration and security work.
+Core Principle: The shell is the administrator's command interpreter and one of the most direct interfaces to Linux system capabilities.

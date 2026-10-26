@@ -1,0 +1,65 @@
+# Topic 4 — KERNEL ARCHITECTURE, SYSTEM LAYERS, RESOURCE MANAGEMENT & KERNEL TYPES
+
+## 1. The Kernel as the Core of the Operating System
+The kernel is the central component of an operating system. It manages the computer's resources and coordinates communication between user-level software and hardware. When the operating system starts, the kernel is loaded into memory and remains active until the system shuts down.
+The kernel decides which processes receive CPU time, how memory is allocated, how devices are accessed, and how software requests protected services. It therefore acts as a controlled boundary between applications and the machine.
+## 2. What the Kernel Manages
+CPU and process scheduling — deciding which process runs and when.
+Memory management — allocating, protecting, and reclaiming memory.
+Input/output devices — coordinating access to storage, keyboards, network adapters, displays, and other devices.
+Resource management — preventing programs from using resources without control.
+System calls — providing the formal interface through which applications request kernel services.
+Kernel security and protection — separating privileged kernel operations from ordinary user programs.
+## 3. User Space and Kernel Space
+Linux separates user-level software from kernel-level operations. Applications such as shells, office software, browsers, graphical tools, and daemons normally run in user space. The Linux kernel runs in kernel space with privileged access to hardware and core system resources.
+This separation helps stability and security. If every application could directly manipulate memory, devices, or CPU control structures, one faulty program could easily damage the whole system. Instead, applications use system calls to request services from the kernel.
+User Applications / Daemons / Libraries ↓ system calls Linux Kernel ┌─────────┼──────────┐Processes Memory Filesystems Network Drivers ↓ Hardware
+## 4. Linux Kernel Subsystems
+'s Linux layer diagram identifies major kernel subsystems such as process scheduling, inter-process communication, memory management, virtual filesystems, and networking. It also shows other components such as ALSA, device interfaces, LVM, device mapper, network scheduling, Netfilter, and Linux Security Modules including SELinux and AppArmor.
+These names help students understand that the kernel is not one single block of undifferentiated code. It is a collection of cooperating subsystems responsible for different classes of operating-system work.
+## 5. Monolithic Kernel
+A monolithic kernel places major operating-system services inside kernel space. identifies Linux and Unix among examples. This design can provide strong performance because many services communicate within the same privileged kernel environment.
+The disadvantage is complexity. A large amount of code runs with kernel privilege, and dependencies can exist between components. Linux reduces some of this rigidity through loadable modules, allowing drivers and other components to be added or removed without rebuilding the entire kernel for every change.
+## 6. Microkernel
+A microkernel uses a more minimal kernel-space design. Core mechanisms such as basic scheduling and memory-related functions remain in the kernel, while more services are moved to user space. lists Mach, L4, AmigaOS, MINIX, and K42 as examples.
+The stated advantage is greater stability due to less code running in the most privileged space. The trade-off is that more communication may occur through system calls and context switches between components.
+## 7. Hybrid, Exokernel and Nanokernel
+A hybrid kernel attempts to combine characteristics of monolithic and microkernel designs. uses Windows NT, NetWare, and BeOS as examples and describes the goal as combining performance with modularity and stability.
+An exokernel minimizes hardware abstractions and gives applications more direct control over allocated physical resources. A nanokernel provides very small hardware-abstraction functionality with few or no higher-level system services. These kernel types are included to show that operating-system architecture can be designed in several ways depending on performance, stability, and abstraction goals.
+## 8. Kernel Examples Across Platforms
+Compares several kernel families: Microsoft Windows uses the NT kernel family, Linux systems use the Linux kernel, macOS and iOS use the Darwin kernel family, and Android uses the Linux kernel. The comparison demonstrates that a graphical operating system is only the visible top layer; underneath it is a kernel architecture that controls the hardware.
+This is why two operating systems can have completely different user interfaces while still sharing some architectural concepts such as process scheduling, memory protection, system calls, and device drivers.
+## 9. User Space and Kernel Space
+Linux separates ordinary user-space programs from kernel-space code. User programs have limited privileges and must request protected operations through controlled kernel interfaces.
+This separation reduces the risk that a normal application can directly damage hardware state or interfere with other processes.
+## 10. System Call Interface
+System calls form the boundary through which applications request kernel services. Operations such as open, read, write, mmap, and process creation depend on this interface.
+A shell command may appear simple, but it can trigger many system calls before the requested task is completed.
+## 11. Process Scheduling
+The scheduler decides which runnable process receives CPU time. It must share processor resources among interactive programs, background services, and system tasks while maintaining responsiveness and fairness.
+Scheduling is one of the kernel functions that makes multitasking possible.
+## 12. Memory Management
+The kernel tracks physical and virtual memory, maps memory into processes, handles paging, and protects one process from accessing another process's memory without authorization.
+When a system experiences memory pressure, the consequences can be visible as slow applications, swapping, or terminated processes.
+## 13. Device and I/O Management
+Device drivers allow the kernel to communicate with hardware such as disks, network cards, USB devices, keyboards, and displays. Drivers translate generic operating-system requests into device-specific operations.
+Hardware troubleshooting often includes checking whether the correct driver and kernel module are available.
+## 14. Virtual Filesystem and Filesystem Subsystems
+Linux provides a common filesystem interface so applications can work with different underlying filesystems through familiar operations such as open, read, write, and close.
+This abstraction allows ext4, Btrfs, network filesystems, and other storage formats to coexist under one directory hierarchy.
+## 15. Networking Subsystem
+The kernel implements networking functions such as protocol handling, interfaces, routing, packet filtering support, and sockets. User-space tools configure these kernel networking capabilities.
+Commands such as ip, ping, and service applications therefore rely on kernel networking underneath.
+## 16. Linux Security Modules
+Linux can use security frameworks such as SELinux, AppArmor, TOMOYO, and Smack. These mechanisms add policy controls beyond traditional Unix file permissions.
+Classic Unix permissions are the foundation here, but security modules demonstrate that kernel-level access control can be extended.
+## 17. Comparing Kernel Designs
+Monolithic, microkernel, hybrid, exokernel, and nanokernel designs make different choices about how much functionality runs in privileged kernel space.
+Linux is generally described as a monolithic kernel with modular capabilities: core operating-system services run in kernel space, while loadable modules allow functionality to be added or removed.
+## 18. Key Takeaways
+The kernel is the privileged core of the operating system.
+User applications normally reach hardware through kernel services and system calls.
+Linux is categorized as a monolithic kernel with modular capabilities.
+Kernel subsystems handle scheduling, memory, filesystems, networking, device access, and security.
+Monolithic, microkernel, hybrid, exokernel, and nanokernel designs represent different architectural approaches.
+Core Principle: The kernel protects and coordinates system resources while exposing controlled services to user-space programs.

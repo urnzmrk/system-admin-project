@@ -1,0 +1,61 @@
+# Topic 10 — LINUX DIRECTORY HIERARCHY, SYSTEM PATHS & FILE ORGANIZATION
+
+## 1. The Linux Filesystem Hierarchy
+Linux organizes files in a single hierarchical directory tree beginning at the root directory, written as /. Unlike Windows, which traditionally uses drive letters such as C: or D:, Linux mounts filesystems and storage devices into locations inside this unified tree.
+This hierarchy is central to Linux administration because configuration files, programs, user data, logs, temporary data, device representations, and server content are stored in predictable locations.
+## 2. The Root Directory /
+The root directory is the top of the entire Linux directory hierarchy. Every other directory appears beneath it. It should not be confused with /root, which is the home directory of the root user.
+When an absolute path begins with /, it means the path starts from this filesystem root.
+## 3. Essential System Directories
+## 4. User and Home Directories
+/home contains the home directories of ordinary users. These directories store personal files and user-specific settings. /root is the home directory reserved for the root user.
+Keeping ordinary user data separate from system configuration helps administrators manage permissions, backups, and accounts more clearly.
+## 5. Configuration and Runtime Data
+/etc stores host-specific system configuration. notes historical interpretations of the name and explains that modern filesystem standards treat it as the location for static configuration files rather than executable programs.
+/run contains runtime information about the current boot, such as process and service state. /proc is a virtual filesystem that exposes process and kernel information as files generated dynamically by the system.
+## 6. Applications, Shared Data and Variable Data
+/usr contains a large portion of user-space programs, libraries, shared resources, and system utilities. /opt is commonly used for add-on application packages. /srv can store site-specific data served by network services such as web or FTP servers.
+/var stores data that changes during normal operation, including logs, mail spools, caches, and other variable content. Administrators frequently inspect /var/log when troubleshooting services.
+## 7. Temporary and Mounted Filesystems
+/tmp stores temporary files and may be cleared between reboots. /mnt is commonly used for temporary mount points, while /media is often used for removable media such as USB drives or optical media.
+The idea of mounting is fundamental: a disk or filesystem becomes accessible by attaching it to a directory in the hierarchy.
+## 8. Why the Directory Hierarchy Matters
+When administrators know the standard directory roles, troubleshooting becomes much faster. If a service has a configuration problem, /etc is a likely starting point. If a service is failing and logs are required, /var/log is important. If a user's files are involved, /home is relevant. If the system will not boot, /boot and boot-loader configuration become important.
+The hierarchy therefore acts as a map of the operating system.
+## 9. The Single Linux Directory Tree
+Linux presents files through one hierarchical directory tree beginning at `/`, called the root directory. Storage devices and network filesystems are attached to locations in this tree through mounting rather than being assigned separate drive letters.
+This design means that system files, user files, devices, and mounted storage all appear under one unified namespace.
+## 10. /bin and /sbin
+`/bin` historically contains essential command binaries needed for basic system operation, while `/sbin` contains essential system-administration binaries.
+On some modern distributions these paths may be linked into `/usr`, but the conceptual distinction remains useful when studying Linux filesystem organization.
+## 11. /boot
+`/boot` stores files required during system startup, such as kernel images, initramfs files, and boot-loader-related data.
+Damage or misconfiguration in `/boot` can prevent a system from starting even when user data remains intact.
+## 12. /dev
+`/dev` contains device files that represent hardware or virtual devices. Examples include disks, terminals, random-number devices, and special pseudo-devices.
+Linux treats many device interactions through file-like interfaces, which is an important Unix design concept.
+## 13. /etc
+`/etc` contains system-wide configuration files. Network settings, service configurations, authentication files, package settings, and many other administrative controls are located here.
+For administrators, `/etc` is one of the most important directories to understand because configuration changes often occur there.
+## 14. /home and /root
+`/home` normally contains the home directories of ordinary users. `/root` is the home directory of the root administrative account.
+Separating personal data from system directories helps support multiuser organization and permission control.
+## 15. /proc and /sys
+`/proc` and `/sys` are virtual filesystems generated by the kernel. `/proc` exposes process and kernel information, while `/sys` exposes structured information about devices, drivers, and kernel objects.
+The files appear in the directory tree even though much of their content is generated dynamically rather than stored as ordinary disk files.
+## 16. /usr
+`/usr` contains a large portion of installed user-space software, libraries, documentation, and shared resources. Important subdirectories include `/usr/bin`, `/usr/lib`, `/usr/sbin`, and `/usr/share`.
+The name is historical; it is not simply the home directory for users.
+## 17. /var
+`/var` stores data expected to change during normal system operation. Examples include logs, caches, spool data, mail, and application state.
+Monitoring `/var` is important because rapidly growing logs or service data can fill a filesystem and cause system problems.
+## 18. /tmp, /run, /mnt, /media, /opt and /srv
+`/tmp` is used for temporary files; `/run` stores runtime state; `/mnt` and `/media` are used for mounted filesystems; `/opt` is used for optional software; and `/srv` may store data served by system services.
+These directories illustrate how the filesystem hierarchy separates different categories of system data.
+## 19. Key Takeaways
+Linux uses a single directory tree beginning at /.
+/etc stores configuration, /home stores ordinary user data, /var stores changing data, and /boot stores startup files.
+/dev represents devices as files and /proc exposes live process/kernel information.
+/root is the root user's home directory and is different from /.
+Understanding the hierarchy is essential for commands, permissions, services, backups, and troubleshooting.
+Core Principle: The Linux directory hierarchy tells administrators where configuration, programs, devices, logs, runtime state, and user data belong.

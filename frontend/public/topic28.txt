@@ -1,0 +1,88 @@
+# Topic 28 — INFORMATION GATHERING, NETWORK DISCOVERY, OSINT & VULNERABILITY ASSESSMENT TOOLS
+
+## 1. Information Gathering in Ethical Hacking
+Information gathering is the beginning of technical ethical-hacking work. groups it into footprinting/fingerprinting, scanning, enumeration, and reconnaissance. These activities answer basic questions: What systems exist? Which addresses are active? Which ports are open? Which services and versions are running? What public information is associated with the target?
+The more accurate the information, the easier it becomes to focus later vulnerability analysis on relevant systems.
+## 2. Nmap
+Nmap is an open-source network scanner used for host discovery, port scanning, service/version detection, operating-system detection, and network mapping. It sends network probes and analyzes the responses to build a picture of the target environment.
+Nmap is useful for both administrators and authorized penetration testers. Administrators can use it to inventory their own network and identify unexpected exposed services.
+Nmap -sV ipaddress
+## 3. Zenmap
+Zenmap is a graphical interface associated with Nmap. It provides network-discovery and security-auditing functions through a GUI, making scanning results easier to visualize and organize for users who do not want to work only from the command line.
+Zenmap to network inventory, service-upgrade planning, and monitoring of host or service availability.
+## 4. Angry IP Scanner
+Angry IP Scanner is an open-source, cross-platform network scanner designed for fast and simple discovery of IP addresses and ports. It is used by administrators, organizations, and security practitioners to identify active systems within address ranges.
+Like other scanners, it should only be used on networks the user is authorized to test.
+## 5. WHOIS and Domain Information
+WHOIS-style lookup services provide registration-related information about Internet domains and related records. connects these lookups to domain administration, DNS troubleshooting, availability checks, trademark issues, and investigation of fraudulent domains.
+From a security perspective, public domain information can contribute to passive reconnaissance.
+## 6. Maltego and OSINT
+Maltego is an open-source intelligence and link-analysis platform used to discover and visualize relationships between people, organizations, websites, domains, DNS names, IP addresses, netblocks, documents, and other entities.
+Its graphical relationship model is valuable because reconnaissance often involves connections between many pieces of public information rather than one isolated fact.
+## 7. Osintgram and Social-Media Intelligence
+Osintgram as an OSINT tool for analyzing public Instagram-related information such as captions, comments, followers, followings, hashtags, and other account data available to the tool.
+The lesson here is broader than one platform: social-media information can reveal relationships, locations, contact patterns, and organizational details, so both testers and defenders need to understand the security impact of public information.
+## 8. Vulnerability Analysis
+After information gathering, vulnerability analysis evaluates the discovered systems and services for weaknesses that could be exploited. A vulnerability can be a software bug, outdated component, insecure configuration, exposed service, or application weakness.
+Vulnerability analysis as a crucial phase because vulnerabilities become the possible launch points for later attacks.
+## 9. Nikto
+Nikto is an open-source web-server scanner written in Perl. it as checking web servers for vulnerabilities, outdated server components, subdomains, proxy-related conditions, and other issues.
+Nikto is useful for broad web-server assessment, but its findings should be verified because automated scanners can report items that require human interpretation.
+## 10. Burp Suite
+Burp Suite is a web-application security testing platform that can act as an intercepting proxy between a browser and a web application. Requests and responses can be inspected and modified so testers can analyze how the application handles input and state.
+Connects Burp Suite to testing vulnerabilities such as cross-site scripting and SQL injection. It distinguishes the free Community edition from the commercial Professional edition.
+## 11. SQLMap
+SQLMap automates testing for SQL injection in web parameters. It can identify supported database technologies and automate parts of the validation process when given an appropriate request or URL.
+Because SQL injection can expose or modify database data, SQLMap should only be used against applications included in an authorized test environment.
+## 12. WhatWeb
+WhatWeb identifies technologies used by a website, including content-management systems, server details, JavaScript libraries, and other recognizable components. it uses a large plugin collection to recognize different technologies.
+Technology identification helps administrators understand what is externally visible and helps testers select relevant vulnerability checks.
+## 13. Information-Gathering Categories
+groups information gathering into footprinting and fingerprinting, scanning, enumeration, and reconnaissance.
+These categories overlap, but together they describe the process of discovering systems, services, identities, and technologies before deeper security testing.
+## 14. Nmap
+Nmap is an open-source network scanner used for host discovery, port scanning, service detection, version detection, operating-system detection, and network mapping.
+Its value comes from turning raw network responses into an organized view of reachable systems and exposed services.
+## 15. Service Version Detection
+includes the `nmap -sV` example for detecting service versions on an authorized target.
+Version information can help administrators identify outdated services, but scanner results should be verified because detection is not always perfect.
+## 16. Zenmap
+Zenmap is a graphical interface associated with Nmap. It can make scan configuration and result visualization easier for users who prefer a GUI.
+The underlying security concepts remain the same: discover hosts and services, then interpret the results.
+## 17. Angry IP Scanner
+Angry IP Scanner is a cross-platform network scanner designed for fast host and port discovery.
+It is useful for inventory and basic network visibility, not only for security testing.
+## 18. WHOIS Lookup
+WHOIS services provide registration information for domains and related Internet resources, subject to privacy and registry policies.
+Administrators may use these records for domain troubleshooting, ownership checks, and incident investigation.
+## 19. Maltego
+Maltego is an open-source-intelligence and link-analysis platform that visualizes relationships among people, organizations, domains, IP addresses, documents, and other entities.
+Its graph-based approach is useful when relationships are more important than isolated pieces of data.
+## 20. OSINT Relationships
+OSINT analysis can reveal connections among domains, name servers, organizations, social accounts, email addresses, and infrastructure.
+Visualizing these links can help both penetration testers and defenders understand external exposure.
+## 21. Osintgram
+includes Osintgram as an Instagram-focused OSINT tool capable of collecting publicly available account-related information.
+Use of social-media reconnaissance should respect authorization, privacy, platform rules, and applicable law.
+## 22. What is Vulnerability Analysis?
+Vulnerability analysis examines systems and applications for weaknesses that could be exploited. It normally follows information gathering because the tester first needs to understand what technologies and services are present.
+A vulnerability is not automatically exploitable; findings require context, validation, and prioritization.
+## 23. Nikto
+Nikto is an open-source web-server scanner that checks for known risky files, outdated components, insecure configurations, and other web-server issues.
+Automated findings should be reviewed because scanners can produce false positives or findings that are not relevant to the actual environment.
+## 24. Burp Suite
+Burp Suite is a web-application security testing platform that can operate as an intercepting proxy between a browser and a web application.
+It allows authorized testers to inspect and modify HTTP requests and responses while evaluating web vulnerabilities.
+## 25. SQLMap
+SQLMap automates testing and exploitation of SQL injection vulnerabilities in web applications when used with authorization.
+Because it can perform intrusive operations, it should be used only in controlled environments and within agreed scope.
+## 26. Tool Selection
+No single tool replaces analysis. Nmap, Maltego, Burp Suite, Nikto, SQLMap, and other tools answer different questions.
+A good security workflow selects tools based on the target, evidence already collected, and the minimum testing needed to validate risk.
+## 27. Key Takeaways
+Information gathering identifies systems, services, technologies, and public relationships before exploitation.
+Nmap, Zenmap, Angry IP Scanner, WHOIS, Maltego and OSINT tools serve different discovery roles.
+Vulnerability analysis evaluates discovered technologies for weaknesses.
+Nikto, Burp Suite, SQLMap and WhatWeb focus on web-related analysis and testing.
+Automated results require interpretation and must be used only within authorized scope.
+Core Principle: Security tools are most effective when each is used to answer a specific information-gathering or vulnerability question.

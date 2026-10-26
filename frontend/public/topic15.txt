@@ -1,0 +1,74 @@
+# Topic 15 — LINUX SEARCH, FILTERS, UTILITIES, ARCHIVING, COMPRESSION & LINKS
+
+## 1. Searching Text with grep
+Grep searches text for matching patterns and is one of the most useful Linux filtering commands. It can search files directly or receive the output of another command through a pipe.
+grep is especially useful with account information and piped commands. This pattern is extremely common in administration because large command outputs can be reduced to only the lines that matter.
+Grep "username" /etc/passwdcommand | grep searchWord
+## 2. Counting and Sorting
+Wc counts lines, words, and characters. sort orders text lines. These commands are simple, but they become more useful when combined with redirection or pipes.
+For example, an administrator could filter a list with grep, sort the matching results, and then count them with wc.
+Wc file.txtsort file.txt
+## 3. od and Data Representation
+Od displays file data in alternative representations such as octal, hexadecimal, or character form. It is useful when ordinary text display is not enough to understand the contents of a file.
+Shows -b for octal, -t x1 for hexadecimal bytes, and -c for character output.
+Od -b filenameod -t x1 filenameod -c filename
+## 4. find and locate
+Find searches the filesystem directly and can match files by name, user, group, type, date, and other properties. locate searches a prebuilt filename database and is generally faster, but its results depend on that database being current.
+The difference illustrates an important administration trade-off: direct searches are current but potentially slower, while indexed searches are fast but depend on previously collected data.
+Find . -name "*.pdf"find /home -user username -lslocate filename
+## 5. General Utility Commands
+Includes date for showing date and time, cal for a calendar, time for measuring command execution time, df for filesystem disk-space usage, mount for attaching filesystems, clear for clearing the terminal, exit for leaving the shell, and zcat for displaying compressed files.
+These commands are examples of small tools that become part of an administrator's daily workflow.
+Datecaldfmount -t type device directoryclearexit
+## 6. tar Archives
+Tar creates and extracts archives. The c option creates an archive, x extracts, v displays progress, f specifies the archive filename, t lists contents, z uses gzip compression, and j can use bzip2 compression.
+An archive combines multiple files into one logical package. Compression may then reduce its size.
+Tar -cvf files.tar folder/tar -cvzf files.tar.gz folder/tar -xvf files.tartar -tf files.tar
+## 7. gzip and gunzip
+Gzip compresses files into the .gz format and normally replaces the original file with its compressed version. gunzip reverses the operation.
+Administrators commonly encounter gzip-compressed logs, backups, source archives, and downloaded packages.
+Gzip file.txtgunzip file.txt.gz
+## 8. Hard Links and Symbolic Links
+A hard link creates another filename referring to the same underlying file data. A symbolic link, or symlink, is a separate file that points to another path. Symlinks can point to directories and can cross filesystem boundaries.
+If the target of a symbolic link is removed, the link becomes broken. Hard links behave differently because they refer to the same file data rather than only to a pathname.
+Ln -s file1.txt file2.txt # symbolic linklink file1.txt file2.txt # hard link exampleunlink file2.txt
+## 9. grep and Text Filtering
+`grep` searches text for matching patterns. It is one of the most useful Linux administrative filters because command output, configuration files, logs, and account databases are largely text-oriented.
+It is commonly combined with pipes so that only relevant lines from another command are displayed.
+## 10. Pipelines
+The pipe operator `|` sends the standard output of one command into the standard input of another. This allows small commands to be combined into more powerful workflows.
+For example, a command can generate a long listing and `grep` can reduce it to lines containing a specific word.
+## 11. wc and Counting
+`wc` counts lines, words, and characters or bytes in text. It is useful for quick measurements and can be combined with other commands in pipelines.
+Counting results can help estimate file size, record counts, or the number of matching entries.
+## 12. od and Data Representation
+`od` displays file data in formats such as octal, hexadecimal, or character form. It is useful when inspecting binary or non-printing data that cannot be understood through ordinary text display.
+This demonstrates that Linux command-line tools can analyze both text and lower-level byte representations.
+## 13. sort
+`sort` orders lines of text and is useful for lists, reports, and command output. It can be combined with other filters to organize data before review.
+Sorting is especially useful when comparing names, identifiers, or repeated values.
+## 14. find and locate
+`find` searches the live filesystem using criteria such as name, owner, group, and type. `locate` searches an indexed database and can be much faster, but the index must be current.
+Administrators choose between accuracy and speed depending on the task.
+## 15. tar Archives
+`tar` groups files and directories into archive files. Options control archive creation, extraction, listing, compression integration, and destination directories.
+Archives are commonly used for backups, software distribution, and transferring groups of files.
+## 16. gzip and gunzip
+`gzip` compresses data into the `.gz` format, while `gunzip` reverses the process. `tar` and `gzip` are often combined to create `.tar.gz` archives.
+Compression saves storage and transfer bandwidth but does not replace backup strategy or integrity checking.
+## 17. Symbolic Links
+A symbolic link is a special file that points to another pathname. Symlinks can reference files or directories and can cross filesystem boundaries.
+If the target is removed or moved, the symbolic link can become broken because it stores a path reference rather than the target data itself.
+## 18. Hard Links
+A hard link is another directory entry referring to the same underlying file data. Unlike a symbolic link, it is not simply a path pointer.
+Hard links have filesystem restrictions and behave differently when one filename is removed.
+## 19. System Utilities
+Commands such as `date`, `cal`, `time`, `df`, `mount`, `zcat`, `clear`, and `exit` provide basic system information and shell control.
+Although individually simple, these utilities are frequently used during administration and troubleshooting.
+## 20. Key Takeaways
+Grep, sort, wc, and pipes help filter and process command output.
+Find searches the live filesystem while locate searches a filename database.
+Tar groups files into archives and gzip/gunzip compress or decompress data.
+Linux utility commands provide quick information about time, storage, mounts, and the shell environment.
+Hard links and symbolic links represent two different ways of referring to file data.
+Core Principle: Linux utilities become most powerful when small commands are combined through filters, pipelines, archives, links, and search tools.

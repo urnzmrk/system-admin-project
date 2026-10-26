@@ -1,0 +1,80 @@
+# Topic 27 — RECONNAISSANCE, FOOTPRINTING, FINGERPRINTING & TARGET PROFILING
+
+## 1. What is Reconnaissance?
+Reconnaissance is the process of learning about a target before deeper testing. lists goals such as gathering initial information, determining the network range, identifying active machines, discovering open ports and access points, fingerprinting operating systems, identifying services, and mapping the network.
+The quality of reconnaissance affects every later phase because accurate target information helps a tester choose the correct tools and avoid irrelevant tests.
+## 2. Active Reconnaissance
+Active reconnaissance directly interacts with the target system. It can produce accurate technical information because the tester can observe how the target responds. Examples include port scanning, service probing, and operating-system detection.
+Warns that active reconnaissance can be detected and may lead to administrative or legal consequences if performed without permission.
+## 3. Passive Reconnaissance
+Passive reconnaissance gathers information without direct interaction with the target system. Public websites, search engines, public documents, job advertisements, social media, and registration information can reveal useful details without sending probes to the target network.
+Passive methods are less visible to the target but can still reveal sensitive information that organizations did not intend to expose.
+## 4. Footprinting
+Footprinting is part of reconnaissance and focuses on gathering as much relevant information as possible about a target organization, network, or computer system. The information may help identify likely technologies, network ranges, employees, domains, and possible attack surfaces.
+Footprinting can be passive or active depending on the technique used.
+## 5. Information Collected During Footprinting
+Domain names and related registration information.
+IP addresses and network ranges.
+Email addresses and phone numbers.
+Employee and organizational information.
+Operating-system and server information.
+Firewall, VPN, network-map, and security-configuration clues.
+URLs and Internet-facing services.
+## 6. Sources of Footprinting
+Identifies social media, job websites, Google, social engineering, Archive.org, organizational websites, NeoTrace, and WHOIS-style services as information sources. Each source can reveal a different part of the target profile.
+Job advertisements, for example, may reveal technologies used by an organization, while public websites reveal domains, services, staff names, contact information, and application structure.
+## 7. Fingerprinting
+Fingerprinting attempts to identify the operating system or technology running on a remote system. Active fingerprinting sends crafted packets and analyzes responses. Passive fingerprinting analyzes traffic that has already been observed or captured.
+Mentions Nmap for active OS detection and Wireshark/sniffer traces for passive analysis.
+## 8. Packet Characteristics Used in Fingerprinting
+Lists packet characteristics such as TTL, TCP window size, the Don't Fragment bit, and Type of Service. Different operating systems and network stacks may use characteristic defaults or response patterns.
+Fingerprinting is probabilistic rather than magical: tools compare observed behavior with known signatures to estimate the likely operating system or service.
+## 9. Footprinting Countermeasures
+Recommends reducing unnecessary public exposure: avoid posting confidential data on social media, be cautious about unwanted contacts, educate users about information-gathering techniques, identify and remove sensitive public information, and configure web servers so they do not expose unnecessary system details.
+These countermeasures show the defensive value of learning reconnaissance: administrators can examine their own public footprint and reduce information that would help an attacker.
+## 10. Purpose of Reconnaissance
+Reconnaissance builds an understanding of the target before deeper testing begins. lists tasks such as determining network range, identifying active machines, discovering ports, fingerprinting operating systems, identifying services, and mapping the network.
+This information helps a tester decide where later scanning and validation should focus.
+## 11. Active Reconnaissance
+Active reconnaissance directly interacts with the target system or network. Because packets or requests reach the target, the activity can be detected and logged.
+It can provide accurate current information but should only be performed against authorized targets.
+## 12. Passive Reconnaissance
+Passive reconnaissance gathers information without directly interacting with the target systems. Examples can include public websites, public records, search engines, or other open sources.
+Passive methods generally create less direct evidence on the target network.
+## 13. Footprinting
+Footprinting is the process of collecting broad information about a target organization or technical environment. It may include domains, IP ranges, employee information, technologies, network structure, and public-facing services.
+Footprinting can be passive or active depending on the information source and method.
+## 14. Information Collected During Footprinting
+identifies items such as domain names, IP addresses, name servers, employee information, phone numbers, email addresses, operating systems, firewalls, server configurations, URLs, and VPN information.
+Not every engagement needs all of this data; collection should remain relevant to the scope.
+## 15. Social Media and Job Websites
+Public social-media profiles and job advertisements can reveal employee roles, technology stacks, office locations, software products, and organizational structure.
+For defenders, this demonstrates why public information should be reviewed for unnecessary exposure.
+## 16. Search Engines and Archived Sites
+Search engines can reveal indexed pages, documents, and technical information. Archive services can preserve older versions of websites that may contain information no longer visible on the current site.
+Historical public information can still create security risk if it reveals technologies, addresses, or internal naming conventions.
+## 17. WHOIS and Domain Information
+WHOIS-related services provide registration and domain information, although privacy services and modern registration rules may limit what is publicly visible.
+Domain information can help establish ownership, name servers, and organizational relationships.
+## 18. Social Engineering in Reconnaissance
+Social engineering gathers information by influencing or observing people rather than only analyzing technology. mentions eavesdropping and shoulder surfing as examples.
+Because these methods involve people and privacy, they require explicit authorization in professional assessments.
+## 19. Fingerprinting
+Fingerprinting attempts to identify an operating system, service, or technology from observable characteristics.
+Knowing the platform helps a tester understand which vulnerabilities or configuration weaknesses may be relevant.
+## 20. Active Fingerprinting
+Active fingerprinting sends crafted network traffic and analyzes responses. Nmap can compare response patterns to known operating-system fingerprints.
+Because active fingerprinting touches the target, it may trigger monitoring or intrusion-detection systems.
+## 21. Passive Fingerprinting
+Passive fingerprinting analyzes traffic that is already being observed, for example through packet captures. Characteristics such as TTL, window size, fragmentation flags, and protocol behavior can suggest an operating system.
+Passive methods can reduce direct interaction but require access to relevant network traffic.
+## 22. Footprinting Countermeasures
+recommends reducing public exposure, avoiding unnecessary confidential information on social media, educating users, reviewing publicly available data, and properly configuring servers so they do not reveal unnecessary system information.
+Defenders can use the same reconnaissance techniques against their own organization to identify what an attacker could learn.
+## 23. Key Takeaways
+Reconnaissance builds the target profile used by later testing phases.
+Active reconnaissance interacts with the target; passive reconnaissance relies on external or already available information.
+Footprinting gathers organizational, network, domain, and human information.
+Fingerprinting identifies operating-system or technology characteristics from behavior or traffic.
+Defenders can reduce risk by minimizing unnecessary public information and service details.
+Core Principle: Reconnaissance reduces uncertainty by building an accurate picture of the target before deeper testing begins.

@@ -1,0 +1,60 @@
+# Topic 12 — LINUX NAVIGATION, PATHS, DIRECTORIES & BASIC FILESYSTEM OPERATIONS
+
+## 1. Absolute and Relative Paths
+A path identifies the location of a file or directory. An absolute path begins at the root directory and starts with /. It identifies the same location regardless of the user's current working directory. A relative path is interpreted from the current working directory.
+Understanding the difference is essential because many command errors happen when a user assumes the shell is working in a different directory.
+# Relative pathcat Desktop/filename.txt # Absolute pathcat /home/username/Desktop/filename.txt
+## 2. pwd — Print Working Directory
+The pwd command displays the absolute path of the current working directory. Before performing a file operation, especially one involving deletion or copying, administrators can use pwd to verify where they are in the filesystem.
+Pwd
+## 3. ls — List Directory Contents
+The ls command lists directory contents. Common options shown in include -a to include hidden files and -l for a long listing that shows permissions, ownership, size, and timestamps.
+Long listings are especially useful because the first characters reveal the file type and permission bits, linking basic navigation to the later permissions topic.
+Lsls -als -lls -la /etc
+## 4. cd — Change Directory
+The cd command changes the current working directory. The special path . refers to the current directory and .. refers to the parent directory. A user can move through the hierarchy using relative or absolute paths.
+The home directory can also be reached by changing to the appropriate /home/username location or through shell shortcuts supported by the environment.
+Cd /etccd ..cd /home/username
+## 5. mkdir and rmdir
+Mkdir creates directories. rmdir removes empty directories. The distinction is important because rmdir will not normally remove a directory that still contains files.
+For non-empty directories, the rm command with recursive options is used, but that is a destructive operation and should be handled with care.
+Mkdir projectrmdir empty_directory
+## 6. Hidden Files and Directory Entries
+Linux commonly treats filenames beginning with a dot as hidden in ordinary directory listings. These files often contain user configuration or application settings. The ls -a option reveals them.
+Hidden does not mean protected. File permissions determine access; the dot naming convention simply affects ordinary display.
+## 7. Navigation Workflow
+Pwd # verify current locationls -la # inspect contents and permissionscd directory # move into a directorymkdir name # create a directorycd .. # return to the parent directory
+## 8. Current Working Directory
+The shell operates within a current working directory. Commands that use relative paths interpret them from this location.
+The `pwd` command displays the current working directory and is one of the safest first commands when a user is unsure where they are.
+## 9. Absolute Paths
+An absolute path begins at the root directory `/` and identifies the complete location of a file or directory.
+For example, `/home/user/Documents/report.txt` refers to the same location regardless of the current working directory.
+## 10. Relative Paths
+A relative path is interpreted from the current directory. `Documents/report.txt` may therefore point to different files depending on where the shell is currently located.
+Relative paths are convenient for nearby files, while absolute paths are clearer in scripts and administrative instructions.
+## 11. The Dot and Dot-Dot Entries
+`.` represents the current directory and `..` represents the parent directory. These symbols are widely used in navigation and commands.
+For example, `cd ..` moves one level upward in the directory hierarchy.
+## 12. Listing Directory Contents
+The `ls` command displays directory entries. Options such as `-l` show detailed information and `-a` include hidden entries whose names begin with a dot.
+Detailed listings also reveal permissions, ownership, size, timestamps, and file type information.
+## 13. Creating Directories
+`mkdir` creates directories. Administrators use directories to organize user data, service data, configuration backups, and project files.
+Directory names should be chosen carefully because paths are referenced by scripts, services, and configuration files.
+## 14. Removing Empty Directories
+`rmdir` removes empty directories. It is safer than recursive deletion because it refuses to remove a directory that still contains files.
+For non-empty directories, other commands may be used, but administrators should verify the target carefully before recursive removal.
+## 15. Navigation Workflow
+A practical navigation sequence is `pwd` to confirm location, `ls` to inspect contents, and `cd` to move to the desired directory.
+This simple workflow reduces mistakes, especially when working as root or modifying system directories.
+## 16. Hidden Files and Directories
+Names beginning with `.` are hidden from ordinary `ls` output. User configuration files such as shell profiles and application settings are commonly stored as hidden files.
+Hidden does not mean protected; file permissions still determine access.
+## 17. Key Takeaways
+Absolute paths begin at / while relative paths depend on the current working directory.
+Pwd shows where you are, ls shows what is there, and cd changes location.
+Mkdir creates directories and rmdir removes empty ones.
+Hidden files usually begin with a dot and can be shown with ls -a.
+Accurate path handling is fundamental to every later Linux command.
+Core Principle: Safe navigation begins with knowing the current directory, understanding paths, and verifying targets before changing them.

@@ -1,0 +1,56 @@
+# Topic 18 — ADMINISTRATIVE PRIVILEGES, SUDO, ROOT ACCESS & SECURE PRIVILEGE MANAGEMENT
+
+## 1. The Root Account
+Root is the traditional Linux superuser account with broad administrative control. Root can change system files, install software, manage users, configure networking, start services, and alter permissions that ordinary users cannot modify.
+This power is necessary for administration but dangerous for routine work. A mistaken root command can damage the system more severely than the same command under a restricted account.
+## 2. What is sudo?
+Sudo allows an authorized user to run selected commands with elevated privileges, commonly as root. This lets administrators work from a normal account and elevate only the commands that need administrative access.
+This approach helps reduce unnecessary time spent in a full root shell and makes privileged actions easier to manage through account policy.
+## 3. Creating a Sudo-capable User
+A practical sequence: log in as root or another administrator, create the new user, add the user to the sudo group, verify membership, switch to the user, and test sudo access.
+On Debian/Ubuntu-style systems, membership in the sudo group commonly grants administrative sudo rights according to the configured sudo policy.
+Adduser nvaldezusermod -aG sudo nvaldezgetent group sudosu - nvaldezsudo ls -al /root
+## 4. The /etc/sudoers File
+/etc/sudoers defines sudo privileges for users and groups. recommends editing it with visudo rather than using an ordinary text editor directly. visudo performs validation that helps prevent syntax errors from breaking sudo configuration.
+The editor can be changed, for example by setting EDITOR=nano when running visudo.
+VisudoEDITOR=nano visudo
+## 5. Privilege Management Principles
+Administrative privileges should be given only to users who need them. A user should not receive sudo access simply because a command is inconvenient under normal permissions. The better approach is to understand which resource requires elevated access and whether ownership, group membership, or service configuration can solve the problem more safely.
+This follows the same least-privilege idea used in file permissions and server security.
+## 6. su vs sudo
+Su switches to another user account or starts a shell as that user, depending on how it is used. sudo runs a command under elevated privileges according to sudo policy. Both can be used for administration, but they represent different privilege workflows.
+For routine administration, sudo allows more controlled, command-by-command privilege elevation.
+## 7. Why Administrative Privilege Exists
+System configuration affects all users and services, so Linux restricts many operations to privileged accounts. Installing packages, changing network settings, editing protected files, and managing users often require elevated privileges.
+Privilege separation prevents ordinary applications from freely changing the entire system.
+## 8. The root User
+Root has UID 0 and can bypass many normal permission restrictions. This makes root necessary for some administration but also makes mistakes more dangerous.
+Good practice is to use root authority only for tasks that actually require it.
+## 9. su
+`su` switches to another user account when authentication requirements are met. `su - user` starts a login-style environment for the selected account.
+Historically, administrators often used `su` to become root for an extended session.
+## 10. sudo
+`sudo` runs a specific command with delegated privileges, usually root privileges, according to policy.
+This allows administrators to perform one protected task without remaining logged in as root for all subsequent work.
+## 11. Creating a Sudo-capable User
+A common sequence is to create a new account, add it to the `sudo` group, verify group membership, and then use `sudo` for administrative commands.
+This pattern is common on Debian- and Ubuntu-based systems.
+## 12. /etc/sudoers
+The `/etc/sudoers` file defines sudo policies for users and groups. Incorrect syntax can prevent sudo from working, so it should be edited using `visudo`, which performs safety checks.
+Additional policy files may also be stored in `/etc/sudoers.d/`.
+## 13. visudo
+`visudo` opens the sudo configuration through a controlled editing process and checks syntax before accepting changes.
+The editor can be selected, for example by setting an editor environment variable before running visudo.
+## 14. Verifying Privilege
+Commands such as `getent group sudo` can help verify group membership, while a protected command such as listing `/root` can confirm whether sudo access is working.
+Verification is important after changing administrative access because a mistake can lock administrators out.
+## 15. Least Privilege
+Least privilege means granting only the authority required for a task. Not every administrator needs unrestricted root access, and not every service should run as root.
+Limiting privilege reduces the impact of mistakes, stolen credentials, and compromised applications.
+## 16. Key Takeaways
+Root has extensive control over the Linux system.
+Sudo allows authorized users to perform administrative commands without remaining logged in as root.
+Users can be added to the sudo group on Debian/Ubuntu-style systems when policy allows it.
+/etc/sudoers controls sudo privileges and should be edited with visudo.
+Privilege should be granted deliberately and only when required.
+Core Principle: Administrative privilege should be available when needed but limited in duration and scope.

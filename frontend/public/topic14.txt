@@ -1,0 +1,69 @@
+# Topic 14 — LINUX USERS, GROUPS, ACCOUNTS & IDENTITY ADMINISTRATION
+
+## 1. Linux User Accounts
+Linux is a multi-user operating system. Each account has an identity used for authentication, ownership, permissions, and process execution. The system distinguishes between the root account, ordinary human users, and system/service accounts.
+User administration is therefore a security function as well as an organizational function. If accounts are created incorrectly or left active unnecessarily, they can become unwanted paths into the system.
+## 2. UID and GID
+Each user has a User ID (UID), and groups have Group IDs (GIDs). notes UID 0 as the root account and describes ranges historically used for system and ordinary accounts. Names are easier for humans, but the operating system ultimately tracks ownership using numeric IDs.
+The id command displays UID and GID information for a user.
+Idid -u usernameid -g username
+## 3. The /etc/passwd Record
+/etc/passwd stores account information such as username, UID, GID, descriptive user information, home directory, and login shell. Modern systems do not normally store the actual password hash directly in this file; the password field often contains x and the secure password hash is stored in /etc/shadow.
+Uses a colon-separated account record to explain these fields.
+Username:x:1000:1000:User Name:/home/username:/bin/bash
+## 4. Creating Users
+Useradd creates a user account, while adduser on some distributions provides a friendlier interactive wrapper. Options can create a home directory, set the home path, lock an account, or control other defaults.
+After creating a user, a password can be set with passwd.
+Sudo useradd -m studentsudo passwd student
+## 5. Managing Passwords
+The passwd command changes a user password. Ordinary users can change their own password, while an administrator can reset passwords for other accounts and manage password status.
+/etc/shadow stores secure password information, while PAM configuration controls many authentication rules on Linux systems.
+Passwdsudo passwd usernamepasswd -S username
+## 6. Deleting Users
+Userdel or deluser removes user accounts. Administrators can choose whether the user's home directory and related data are also removed. This choice matters because deleting an account and deleting its data are separate administrative decisions.
+Before removing an account, administrators should determine whether files need to be preserved or reassigned.
+Sudo userdel usernamesudo userdel -r usernamesudo deluser --remove-home username
+## 7. Groups: Primary and Secondary
+Every user belongs to a primary or login group, which is normally associated with files created by that user. A user can also belong to zero or more secondary groups used to grant additional access or privileges.
+Groups allow administrators to manage permissions for collections of users rather than setting access separately for every individual account.
+## 8. Managing Groups and Membership
+Groupadd creates groups, groupmod changes group definitions, and groupdel removes them. usermod can add an existing user to supplementary groups or modify account details such as username, UID, home directory, lock status, or descriptive information.
+The -aG combination is important when adding a user to a supplementary group because -a appends the membership instead of replacing the existing list.
+Sudo groupadd adminssudo usermod -aG admins studentgetent group adminssudo groupmod -n newgroup oldgroupsudo groupdel oldgroup
+## 9. Linux User Identities
+Linux associates activity with user accounts. Each user has a username and a numeric user identifier (UID), and processes run with the identity and privileges of a user.
+This identity model is fundamental to permissions, ownership, service accounts, and auditing.
+## 10. The root Account
+UID 0 is reserved for root, the superuser with extensive administrative authority. Root can change system files, manage users, install software, and alter security-sensitive settings.
+Because root mistakes can affect the entire system, ordinary work should normally be performed with a non-root account.
+## 11. /etc/passwd
+`/etc/passwd` stores public account information such as username, UID, primary GID, home directory, and login shell.
+Modern systems do not normally store password hashes directly in this file; a placeholder indicates that secure password data is stored elsewhere.
+## 12. /etc/shadow
+`/etc/shadow` stores protected password-hash and account-aging information. Access is restricted because the data is security-sensitive.
+Separating public account metadata from protected credential data is an important part of Linux account security.
+## 13. Creating Users
+`useradd` creates user accounts and accepts options for home directories, IDs, shells, and other account properties. Some distributions also provide higher-level tools such as `adduser`.
+After account creation, administrators normally set an initial password and verify group membership.
+## 14. Managing Passwords
+The `passwd` command sets or changes account passwords. Administrators can also inspect password status and apply password-related account controls.
+Passwords should be managed together with account policy, privilege assignment, and secure authentication practices.
+## 15. Deleting Users
+`userdel` removes a user account. Options can also remove the user's home directory and mail data.
+Before deleting an account, administrators should consider ownership of files, running processes, scheduled tasks, service dependencies, and data-retention requirements.
+## 16. Modifying Users
+`usermod` changes account properties such as username, UID, home directory, lock status, and supplementary groups.
+The `-aG` pattern is commonly used to append a user to an additional group without replacing existing supplementary memberships.
+## 17. Primary and Secondary Groups
+Every user has a primary group, and users may also belong to supplementary groups. Group membership is used to share access to files, devices, and administrative capabilities.
+Groups make permission management scalable because access can be granted to a role rather than configured separately for every user.
+## 18. Group Administration
+`groupadd`, `groupmod`, and `groupdel` create, modify, and remove groups. Group information is stored in system account databases such as `/etc/group`.
+Administrators should plan group names and membership around real access requirements.
+## 19. Key Takeaways
+Linux identities are represented by user and group accounts with numeric UIDs and GIDs.
+/etc/passwd stores account metadata and /etc/shadow stores secure password information.
+Useradd/adduser, passwd, userdel, and usermod are central account-management tools.
+Primary groups establish default group ownership while supplementary groups grant additional access.
+Account management is part of both administration and security.
+Core Principle: Linux account administration links identity, group membership, home directories, shells, passwords, and permissions into one access-control model.

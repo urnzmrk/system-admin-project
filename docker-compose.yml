@@ -1,0 +1,57 @@
+services:
+
+  database:
+    image: mysql:8.4
+    container_name: mysql_database
+    restart: unless-stopped
+
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:?Set MYSQL_ROOT_PASSWORD in .env}
+      MYSQL_DATABASE: ${MYSQL_DATABASE:-systemdb}
+      MYSQL_USER: ${MYSQL_USER:-systemuser}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD:?Set MYSQL_PASSWORD in .env}
+
+    ports:
+      - "3306:3306"
+
+    volumes:
+      - mysql_data:/var/lib/mysql
+
+
+  backend:
+    build: ./backend
+    container_name: flask_backend
+    restart: unless-stopped
+
+    ports:
+      - "5000:5000"
+
+    environment:
+      AI_PROVIDER: ${AI_PROVIDER:-auto}
+      OPENAI_API_KEY: ${OPENAI_API_KEY:-}
+      OPENAI_MODEL: ${OPENAI_MODEL:-gpt-4o-mini}
+      GEMINI_API_KEY: ${GEMINI_API_KEY:-}
+      GEMINI_MODEL: ${GEMINI_MODEL:-gemini-2.0-flash}
+
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ./backend:/app
+
+    depends_on:
+      - database
+
+
+  frontend:
+    build: ./frontend
+    container_name: react_frontend
+    restart: unless-stopped
+
+    ports:
+      - "5174:5174"
+
+    depends_on:
+      - backend
+
+
+volumes:
+  mysql_data:

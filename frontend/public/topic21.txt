@@ -1,0 +1,69 @@
+# Topic 21 — SERVER TYPES, ROLES, SERVICES, PLATFORMS & ENTERPRISE SERVER CONCEPTS
+
+## 1. Common Server Types
+Lists many server roles: DNS, DHCP, domain controllers, web servers, FTP/file servers, application servers, mail servers, proxy servers, SSH/Telnet servers, virtual servers, database servers, print servers, game servers, collaboration servers, list servers, open-source servers, and real-time communication servers.
+These categories are best understood by the service they provide rather than by hardware differences.
+## 2. DNS and DHCP Servers
+A DNS server resolves names into IP addresses and can also support reverse resolution. A DHCP server automatically supplies network configuration such as addresses, subnet masks, gateways, and DNS information to clients.
+These two services are fundamental network infrastructure: DNS helps clients find services by name, while DHCP helps clients join the network with usable configuration.
+## 3. Web, Application and Database Servers
+A web server serves content to web browsers, commonly through HTTP or HTTPS. An application server provides application logic or middleware between users and backend systems. A database server stores and retrieves structured application data.
+These roles often work together. A web application may involve a web server receiving requests, application code processing them, and a database server storing the persistent data.
+## 4. File, FTP and Print Servers
+File servers provide shared storage across a network. FTP servers provide file transfer using the File Transfer Protocol. Print servers coordinate printers and print jobs for multiple users.
+Linux implementations mentioned in include Samba for file services and CUPS for printing, while FTP software and clients can be used for file transfer.
+## 5. Mail, Proxy and Communication Servers
+Mail servers move and store email across local and wide-area networks and the Internet. Proxy servers sit between clients and external services and can filter requests, improve performance, share connections, or implement different network architectures.
+Real-time communication servers support near-instant message exchange. includes IRC-style servers and enterprise communication platforms among its examples.
+## 6. SSH/Telnet and Remote Access
+Telnet historically provided remote terminal access but does not provide the encryption expected for secure modern administration. SSH provides encrypted remote login and command execution and is therefore preferred for Linux server management.
+The contrast illustrates why server roles cannot be considered separately from security. A service may be functional but still unsuitable if it exposes credentials or data insecurely.
+## 7. Virtual Servers and Hypervisors
+Virtual servers run as virtual machines on a hypervisor. references technologies such as Hyper-V, Xen, and vSphere. Virtualization allows several isolated server operating systems to share the same physical hardware.
+This improves hardware utilization and makes testing, deployment, and recovery more flexible. It also introduces a new administration layer because the hypervisor and virtual networking must be managed.
+## 8. Microsoft Server Platforms and Roles
+Includes Microsoft server examples such as Exchange Server, Lync Server, SharePoint Server, SQL Server, Active Directory-related roles, DHCP, DNS, Hyper-V, Remote Desktop Services, IIS, print services, and update services.
+Including these examples helps compare Linux server concepts with enterprise server roles on another platform. The underlying administrative concerns—identity, networking, storage, web services, databases, remote access, and updates—remain similar even when the products differ.
+## 9. DNS Server
+A DNS server translates domain names and hostnames into IP addresses and can also provide reverse lookup and other DNS records.
+DNS is a foundational network service because many applications depend on names rather than hard-coded addresses.
+## 10. DHCP Server
+A DHCP server automatically assigns network settings to clients from a configured pool. It can also reserve fixed addresses for known devices.
+DHCP simplifies client configuration and centralizes control of address allocation.
+## 11. Domain Controller and Directory Services
+Domain-controller services centralize user identity, authentication, policy, and resource access. Samba and Windows-related domain services are examples of this role.
+Directory services are especially important in organizations with many users and computers.
+## 12. Web Server
+A web server accepts HTTP or HTTPS requests and returns web content. Apache, NGINX, LiteSpeed, and Lighttpd are examples mentioned in Linux server contexts.
+Web servers may serve static files or pass requests to applications that generate dynamic responses.
+## 13. FTP and File Servers
+FTP servers provide file-transfer functionality, while file servers such as Samba expose shared files through network protocols.
+Modern environments often prefer encrypted file-transfer methods when sensitive data is involved.
+## 14. Application Server
+An application server runs application logic between clients and back-end resources such as databases.
+It may provide APIs, business logic, session handling, middleware, or runtime environments for enterprise applications.
+## 15. Mail Server
+Mail servers send, receive, route, and store email. Linux examples include Postfix, Sendmail, and Zimbra-related environments.
+Mail administration involves DNS, security, spam control, authentication, encryption, storage, and reliable delivery.
+## 16. Proxy Server
+A proxy server sits between clients and other servers. Forward proxies can control client access, reverse proxies can sit in front of servers, and caching proxies can improve performance.
+Proxy types include forward, transparent, reverse, and cache proxies.
+## 17. SSH and Telnet Servers
+SSH provides encrypted remote terminal access, while Telnet is an older plaintext remote-login protocol.
+Because Telnet does not protect credentials or traffic, SSH is generally preferred for secure administration.
+## 18. Virtual, Database, Print and Game Servers
+Virtual servers provide logical server environments on shared hardware. Database servers manage structured data, print servers coordinate printers, and game servers provide networked game sessions.
+These roles show that 'server' is a broad category defined by the service offered.
+## 19. Collaboration, List and Real-Time Communication Servers
+Collaboration servers help users work together, list servers manage mailing lists, and real-time communication servers support chat or messaging.
+These service types illustrate how servers support communication as well as infrastructure.
+## 20. Microsoft Server Platforms and Roles
+Microsoft server examples include Exchange, SharePoint, SQL Server, Active Directory roles, Hyper-V, IIS, DHCP, DNS, remote access, and update services.
+Including these roles helps compare Linux service concepts with enterprise server platforms outside Linux.
+## 21. Key Takeaways
+Server types are defined by the services they provide.
+DNS, DHCP, web, database, file, mail, proxy, remote-access, print, and virtualization roles solve different infrastructure needs.
+One server may host multiple roles, but separating roles can improve security and manageability.
+Virtualization allows multiple server operating systems to share physical hardware.
+Enterprise server concepts exist across Linux and Microsoft platforms.
+Core Principle: Different server roles solve different infrastructure problems, but all require controlled configuration, access, maintenance, and monitoring.

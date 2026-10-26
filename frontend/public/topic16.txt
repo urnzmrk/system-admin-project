@@ -1,0 +1,63 @@
+# Topic 16 — LINUX NETWORKING COMMANDS, CONNECTIVITY, NAME RESOLUTION & REMOTE ACCESS
+
+## 1. Networking from the Command Line
+Linux networking commands allow administrators to inspect interfaces, test connectivity, resolve names, and connect to remote systems. These tools are important because server administration often takes place remotely and many service problems are actually network problems.
+Commands should be interpreted as parts of a troubleshooting workflow rather than isolated facts.
+## 2. ip and ifconfig
+Ip as a modern networking command used to view or manage interfaces and addresses, while ifconfig is an older interface-configuration tool still commonly encountered. The ip addr or ip a command displays interface address information.
+Administrators use these commands to verify whether an interface exists, whether it is up, and which IP addresses are assigned.
+Ip aip addrifconfig
+## 3. iwconfig
+Iwconfig is similar in purpose to ifconfig but is focused on wireless network interfaces. It displays or changes wireless-specific interface parameters on systems that use the relevant wireless-tools environment.
+The distinction reflects the difference between general network-interface configuration and wireless-specific settings.
+## 4. ping — Connectivity Testing
+Ping sends ICMP echo requests to another host and reports whether replies are received. It is commonly used to test basic IP connectivity and measure response time.
+A successful ping does not prove that every service is working, but it helps determine whether the host can be reached at the network layer.
+Ping destination
+## 5. host — DNS Lookup
+The host command performs DNS lookups and can display the IP address associated with a domain name or perform reverse lookups from an IP address to a name.
+This helps separate name-resolution problems from general connectivity problems. A server may be reachable by IP address even when DNS is misconfigured.
+Host example.comhost 192.168.1.10
+## 6. ssh — Secure Remote Access
+Ssh creates a remote connection using the Secure Shell protocol. The standard SSH service uses TCP port 22. SSH provides encrypted remote command-line login and is one of the primary administration methods for Linux servers.
+The client command combines a username with a hostname or IP address. Authentication may use passwords or cryptographic keys.
+Ssh username@hostssh username@192.168.1.20
+## 7. mail and Other Network Utilities
+The mail command can send email from the command line when a mail environment is configured. Linux also provides many specialized network tools, while server-side services such as SSH, FTP, DHCP, DNS-related configuration, and web services are managed separately.
+Mail -s "Subject" recipient@example.com
+## 8. Basic Network Troubleshooting Sequence
+## 1. ip a → Is the interface configured?2. ping gateway → Can the local network gateway be reached?3. ping host → Can the remote host be reached?4. host name → Does DNS resolve correctly?5. ssh user@host → Does the remote service accept a connection?
+## 9. ip Command
+The `ip` command is a modern Linux tool for viewing and configuring network interfaces, addresses, and routes. `ip addr` or `ip a` displays interface and address information.
+It is generally preferred over older `ifconfig` for modern administration.
+## 10. ifconfig
+`ifconfig` historically displayed and configured network interfaces. It remains present in some environments and appears in many older guides and legacy administration workflows.
+Administrators should recognize it while also learning the modern `ip` command family.
+## 11. iwconfig
+`iwconfig` is related to wireless interface configuration and historically provided information and settings specific to wireless networking.
+Wireless administration may now use newer tools, but the command demonstrates the distinction between general and wireless-specific interfaces.
+## 12. ping
+`ping` sends ICMP echo requests to test whether a destination responds and to measure basic round-trip timing.
+A failed ping does not always mean the destination is down because firewalls can block ICMP; it is one diagnostic signal rather than a complete network test.
+## 13. host and DNS Lookup
+The `host` command performs DNS lookups, translating domain names to IP addresses or performing reverse lookups.
+Name-resolution testing helps separate DNS problems from basic IP connectivity problems.
+## 14. SSH Client
+The `ssh` command creates an encrypted remote shell connection to an SSH server. The usual syntax identifies a username and a hostname or IP address.
+SSH is one of the most important tools for administering Linux servers remotely.
+## 15. mail Command
+Command-line mail utilities can send messages from scripts or terminals when a mail-transfer environment is configured.
+The presence of a `mail` command does not by itself mean the system is a complete mail server; delivery depends on additional software and configuration.
+## 16. Connectivity Troubleshooting Sequence
+A practical sequence is to inspect the local interface, verify the local address and route, test the gateway, test an external IP, and then test DNS name resolution.
+This step-by-step approach helps identify whether a failure is local, routing-related, remote, or caused by name resolution.
+## 17. Ports and Services
+Network commands are often combined with service knowledge. A host can be reachable at the IP level while a specific service is unavailable because the program is stopped, the port is filtered, or the application is listening on a different interface.
+Troubleshooting therefore connects networking commands with service management and firewall configuration.
+## 18. Key Takeaways
+Ip and ifconfig inspect or configure network interfaces.
+Iwconfig focuses on wireless-interface settings.
+Ping tests basic reachability while host checks DNS name resolution.
+Ssh provides encrypted remote login and command execution.
+Networking commands are most useful when used as part of a structured troubleshooting process.
+Core Principle: Network troubleshooting works best when administrators test connectivity layer by layer instead of guessing at the cause.

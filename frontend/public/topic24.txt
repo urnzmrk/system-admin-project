@@ -1,0 +1,77 @@
+# Topic 24 — NETWORK SERVICES: SSH, FTP, DHCP & LINUX SERVICE MANAGEMENT
+
+## 1. Linux Network Services
+Linux can provide many network services. gives practical configuration examples for SSH, FTP, DHCP, web services, and general service control. These services run as background processes and listen for requests from clients.
+Installing a service is only the beginning. It must also be configured, started, secured, allowed through the firewall when required, and monitored.
+## 2. SSH Server
+SSH, or Secure Shell, is a cryptographic network protocol used for secure remote command-line access and remote command execution over an untrusted network. The standard TCP port is 22.
+OpenSSH Server can be installed on Ubuntu, checked through systemctl, allowed through UFW, and accessed from another machine with the ssh client.
+Sudo apt updatesudo apt install openssh-serversudo systemctl status sshdsudo ufw allow sshssh username@ip_address
+## 3. SSH Keys
+Password-based SSH authentication can be replaced or supplemented with cryptographic key authentication. later recommends certificate/key authentication as a server-hardening practice because automated password guessing can be reduced or disabled.
+Ssh-keygen creates a key pair, while ssh-copy-id can copy the public key to a remote account for authentication.
+Ssh-keygen -t rsassh-copy-id user@ssh-ip-address
+## 4. FTP and vsftpd
+FTP is used for transferring files between systems. demonstrates installing the vsftpd server, checking its service status, and configuring firewall ports.
+FTP should be treated carefully from a security perspective because traditional FTP does not protect credentials and data in the same way as encrypted protocols. retains FTP because it is a common historical and instructional server role.
+Sudo apt update && sudo apt install vsftpdsudo service vsftpd statussudo ufw allow 21/tcp
+## 5. DHCP Server
+A DHCP server automatically assigns IP configuration to clients. uses a sample network 192.168.100.0/24 with a server address and a dynamic range from 192.168.100.101 to 192.168.100.200.
+The isc-dhcp-server package is installed, then /etc/dhcp/dhcpd.conf is configured with subnet, range, DNS, and router options.
+Sudo apt install isc-dhcp-server -ysudo nano /etc/dhcp/dhcpd.conf
+## 6. DHCP Configuration Example
+Authoritative;subnet 192.168.100.0 netmask 255.255.255.0 { range 192.168.100.101 192.168.100.200; option domain-name-servers 192.168.100.1; option routers 192.168.100.2;} sudo systemctl restart isc-dhcp-server.service
+## 7. DHCP Leases and Fixed Addresses
+DHCP servers track which addresses have been leased to clients. uses dhcp-lease-list to inspect leases. DHCP can also reserve a fixed address for a device based on its hardware/MAC address.
+Reservations are useful when a device should receive the same address while still obtaining configuration automatically from DHCP.
+Host web-server { hardware ethernet 00:0c:29:c3:a0:1b; fixed-address 192.168.100.9;}
+## 8. Managing Services with systemctl and service
+Systemctl is the main service-management interface on modern systemd-based Linux distributions. It can start, stop, restart, enable, disable, and show the status of services. also shows the older service command, which remains available on many systems for compatibility.
+Administrators should know the service name used by their distribution because package names and service names are not always identical.
+Sudo systemctl start httpdsudo systemctl stop httpdsudo systemctl restart httpd sudo service httpd startsudo service httpd stopsudo service httpd restart
+## 9. Service Security and Firewall Access
+A service should not automatically be exposed to every network simply because it has been installed. The administrator should determine which interfaces and ports need to be reachable, configure the firewall accordingly, and disable or remove services that are not needed.
+This principle becomes central in the server-hardening topic.
+## 10. Linux Service Management
+Network services run as background processes and are commonly managed through service-control systems. Modern distributions usually use `systemctl`, while older or compatibility environments may use the `service` command.
+Administrators need to know how to start, stop, restart, enable, and check the status of a service.
+## 11. systemctl
+`systemctl` communicates with systemd to manage service units. Commands such as `systemctl start`, `stop`, `restart`, and `status` are central to modern Linux server administration.
+Enabling a service configures it to start automatically at boot when appropriate.
+## 12. The service Command
+The `service` command provides a traditional interface for starting and stopping services and may remain available for compatibility.
+It is useful to recognize because older documentation and distributions may use it.
+## 13. SSH Service
+SSH provides encrypted remote command-line access and remote command execution. OpenSSH is the common Linux implementation.
+The standard SSH TCP port is 22, although administrators can configure another port if required.
+## 14. Installing OpenSSH Server
+On Ubuntu, installs `openssh-server`, checks the SSH service status, and allows SSH through the firewall.
+A client then connects using a username and server IP address.
+## 15. SSH Key Authentication
+SSH keys provide public-key authentication. A user creates a key pair, keeps the private key secret, and places the public key on the server.
+Key authentication can reduce dependence on reusable passwords and is an important server-hardening practice.
+## 16. FTP and vsftpd
+FTP is a long-established file-transfer protocol. uses `vsftpd` as a Linux FTP server example.
+Because ordinary FTP does not encrypt credentials or transferred data, secure alternatives should be considered for sensitive environments.
+## 17. FTP Firewall Ports
+Traditional FTP uses TCP port 21 for control and historically uses additional connections for data transfer. Firewall configuration must match the server's active or passive mode.
+demonstrates allowing the FTP service while separately allowing SSH.
+## 18. DHCP Server Purpose
+A DHCP server automatically assigns clients IP configuration from a defined network and range.
+configures an example network, server address, netmask, and allocation range.
+## 19. isc-dhcp-server Configuration
+The DHCP configuration file defines whether the server is authoritative, the subnet, address range, DNS servers, router, and other options.
+After editing, the DHCP service is restarted so the configuration can take effect.
+## 20. DHCP Leases
+A lease records an address assignment to a client for a period of time. Tools can display the current lease list so administrators can see which devices received addresses.
+Lease information is useful when troubleshooting address conflicts or client connectivity.
+## 21. DHCP Reservations
+A fixed-address reservation associates a client's hardware address with a predictable IP address.
+Reservations combine automatic client configuration with stable addressing for known devices.
+## 22. Key Takeaways
+SSH provides secure remote administration, normally on TCP port 22.
+FTP/vsftpd provides file transfer but requires careful security consideration.
+DHCP automatically distributes IP configuration and can provide fixed reservations.
+Systemctl and service control background services.
+Network services must be installed, configured, secured, started, and monitored as one administrative process.
+Core Principle: Network services must be installed, configured, exposed through the correct ports, monitored, and controlled throughout their lifecycle.

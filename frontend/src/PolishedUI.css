@@ -1,0 +1,3198 @@
+/*
+ * Visual refinements for every application route outside System Administration.
+ * The wrapper class is deliberately absent on the System Administration route.
+ */
+.app-shell--polished {
+  --border: #2b3b52;
+  --surface: #111f33;
+  --surface-soft: #17273d;
+  --navy: #f1f5f9;
+  --navy-light: #dbe7f5;
+  --navy-soft: #c5d5e8;
+  --blue: #1684b7;
+  --blue-light: #36a4d2;
+  --blue-soft: rgba(29, 156, 199, 0.14);
+  --cyan: #38b8d8;
+  --cyan-soft: rgba(56, 184, 216, 0.12);
+  --green: #34d399;
+  --green-soft: rgba(52, 211, 153, 0.12);
+  --yellow: #fbbf24;
+  --yellow-soft: rgba(251, 191, 36, 0.12);
+  --red: #f87171;
+  --red-soft: rgba(248, 113, 113, 0.11);
+  --purple: #a78bfa;
+  --purple-soft: rgba(167, 139, 250, 0.12);
+  --text: #e6edf6;
+  --text-secondary: #aab8ca;
+  --text-muted: #8193aa;
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.16);
+  --shadow: 0 14px 36px rgba(0, 0, 0, 0.2);
+  --radius: 14px;
+}
+
+.app-shell--polished .main-area {
+  background: #0c1626;
+}
+
+.app-shell--polished .sidebar {
+  background: linear-gradient(180deg, #101d30 0%, #0b1524 100%);
+  border-right-color: #203149;
+}
+
+.app-shell--polished .sidebar-brand {
+  min-height: 82px;
+  padding: 18px 20px;
+}
+
+.app-shell--polished .sidebar-brand strong {
+  color: #f8fafc;
+  font-size: 16px;
+  letter-spacing: -0.02em;
+}
+
+.app-shell--polished .sidebar-brand span {
+  color: #b4c2d3;
+  font-size: 12px;
+}
+
+.app-shell--polished .sidebar-status {
+  margin: 4px 14px 18px;
+  padding: 12px;
+  border-color: #283a52;
+  background: #142238;
+}
+
+.app-shell--polished .sidebar-status strong {
+  color: #e6edf6;
+  font-size: 13px;
+}
+
+.app-shell--polished .sidebar-status span:last-child {
+  color: #b1bfd1;
+  font-size: 12px;
+}
+
+.app-shell--polished .sidebar-section-label {
+  padding: 0 12px;
+  color: #a8b8cb;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+}
+
+.app-shell--polished .sidebar-nav {
+  gap: 4px;
+  padding: 0 10px 14px;
+}
+
+.app-shell--polished .nav-button {
+  min-height: 44px;
+  padding: 9px 12px;
+  border-radius: 9px;
+  color: #b1bfd1;
+  font-size: 14px;
+  font-weight: 550;
+}
+
+.app-shell--polished .nav-button:hover {
+  background: rgba(148, 163, 184, 0.1);
+  color: #fff;
+}
+
+.app-shell--polished .nav-button.active {
+  background: rgba(34, 145, 190, 0.2);
+  color: #f8fafc;
+}
+
+.app-shell--polished .nav-active-line {
+  background: #46b8dc;
+}
+
+.app-shell--polished .nav-icon {
+  width: 23px;
+  color: #8dd7ed;
+  font-size: 16px;
+}
+
+.app-shell--polished .sidebar-account {
+  margin: 0 14px;
+  border: 1px solid #263950;
+  background: #142238;
+}
+
+.app-shell--polished .account-details strong {
+  color: #f1f5f9;
+  font-size: 12px;
+}
+
+.app-shell--polished .account-details span {
+  color: #b1bfd1;
+  font-size: 11px;
+}
+
+.app-shell--polished .sidebar-bottom {
+  background: #0b1524;
+  border-top-color: #203149;
+}
+
+.app-shell--polished .logout-button {
+  min-height: 40px;
+  border: 1px solid #283a52;
+  color: #c4d0df;
+  font-size: 14px;
+}
+
+.app-shell--polished .sidebar-version {
+  color: #a0b0c4;
+  font-size: 10px;
+}
+
+.app-shell--polished .topbar {
+  height: 76px;
+  padding: 0 clamp(18px, 3vw, 40px);
+  background: rgba(15, 27, 45, 0.96);
+  border-bottom-color: #25364c;
+  box-shadow: 0 3px 16px rgba(0, 0, 0, 0.12);
+}
+
+.app-shell--polished .breadcrumb {
+  color: #b1bfd1;
+  font-size: 12px;
+}
+
+.app-shell--polished .topbar h1 {
+  color: #f1f5f9;
+  font-size: 19px;
+  font-weight: 650;
+  letter-spacing: -0.02em;
+}
+
+.app-shell--polished .topbar-server {
+  border-right-color: #2b3b52;
+}
+
+.app-shell--polished .topbar-server strong,
+.app-shell--polished .topbar-user strong {
+  color: #e6edf6;
+  font-size: 12px;
+}
+
+.app-shell--polished .topbar-server span:last-child,
+.app-shell--polished .topbar-user span {
+  color: #b1bfd1;
+  font-size: 12px;
+}
+
+.app-shell--polished .topbar-avatar,
+.app-shell--polished .account-avatar {
+  border: 1px solid rgba(125, 211, 252, 0.24);
+  background: linear-gradient(145deg, #17668d, #174772);
+}
+
+.app-shell--polished .content-area {
+  max-width: 1720px;
+  padding: clamp(20px, 2.5vw, 38px);
+  color: #e6edf6;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.app-shell--polished .page {
+  color: #e6edf6;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.app-shell--polished .page p,
+.app-shell--polished .page li {
+  font-size: 15px;
+  line-height: 1.65;
+}
+
+.app-shell--polished .page::before {
+  height: 170px;
+  opacity: 0.38;
+}
+
+.app-shell--polished .page > .page-hero:not(.dashboard-page-header) {
+  min-height: 0;
+  margin: 0 0 24px;
+  padding: 22px 24px;
+  border-color: #2a4059;
+  border-radius: 14px;
+  background: linear-gradient(120deg, #14263d, #101c2e 80%);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.13);
+}
+
+.app-shell--polished .page > .page-hero:not(.dashboard-page-header) h2 {
+  color: #f4f7fb;
+  font-size: clamp(26px, 2vw, 31px);
+  font-weight: 650;
+  line-height: 1.22;
+  letter-spacing: -0.025em;
+}
+
+.app-shell--polished .page > .page-hero:not(.dashboard-page-header) p {
+  max-width: 76ch;
+  color: #b1bfd1;
+  font-size: 15px;
+  line-height: 1.65;
+}
+
+.app-shell--polished .dashboard-page > .page-hero.dashboard-page-header p {
+  color: #b9c7d8 !important;
+  font-size: 15px !important;
+  line-height: 1.65 !important;
+}
+
+.app-shell--polished .page .section-label,
+.app-shell--polished .page .eyebrow {
+  color: #77cde5;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+}
+
+.app-shell--polished .section-heading {
+  align-items: flex-end;
+  gap: 18px;
+  margin: 30px 0 16px;
+}
+
+.app-shell--polished .section-heading h2 {
+  color: #f1f5f9;
+  font-size: 22px;
+  font-weight: 650;
+  line-height: 1.3;
+  letter-spacing: -0.02em;
+}
+
+.app-shell--polished .section-heading p {
+  max-width: 74ch;
+  color: #aab8ca;
+  font-size: 15px;
+  line-height: 1.65;
+}
+
+.app-shell--polished .section-action {
+  color: #a9dced;
+  font-size: 13px;
+  letter-spacing: 0.04em;
+}
+
+.app-shell--polished .panel,
+.app-shell--polished .user-form-panel,
+.app-shell--polished .lecture-reader {
+  border: 1px solid #2b3b52;
+  border-radius: 13px;
+  background: #111f33;
+  color: #dce6f2;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.14);
+}
+
+.app-shell--polished .panel {
+  padding: clamp(17px, 2vw, 24px);
+}
+
+.app-shell--polished .panel-header-new {
+  align-items: flex-start;
+  gap: 18px;
+  border-bottom-color: #2b3b52;
+}
+
+.app-shell--polished .panel-header-new h3 {
+  color: #f1f5f9;
+  font-size: 19px;
+  font-weight: 650;
+  line-height: 1.35;
+}
+
+.app-shell--polished .panel-header-new p {
+  color: #aab8ca;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.app-shell--polished .primary-action,
+.app-shell--polished .secondary-action,
+.app-shell--polished .secondary-button,
+.app-shell--polished .primary-button,
+.app-shell--polished .back-button,
+.app-shell--polished .text-button,
+.app-shell--polished .table-edit,
+.app-shell--polished .table-delete {
+  min-height: 40px;
+  height: auto;
+  padding: 9px 14px;
+  border-radius: 9px;
+  font-size: 14px;
+  font-weight: 650;
+  line-height: 1.25;
+}
+
+.app-shell--polished .primary-action,
+.app-shell--polished .primary-button {
+  border: 1px solid #2188b3;
+  background: #177ca5;
+  color: #fff;
+  box-shadow: 0 3px 9px rgba(7, 89, 133, 0.24);
+}
+
+.app-shell--polished .primary-action:hover,
+.app-shell--polished .primary-button:hover {
+  border-color: #39a7d1;
+  background: #1b8bb7;
+}
+
+.app-shell--polished .secondary-action,
+.app-shell--polished .secondary-button,
+.app-shell--polished .back-button {
+  border: 1px solid #344960;
+  background: #182a40;
+  color: #d6e2ef;
+  box-shadow: none;
+}
+
+.app-shell--polished .text-button {
+  border: 1px solid transparent;
+  background: transparent;
+  color: #c4d0df;
+  box-shadow: none;
+}
+
+.app-shell--polished .text-button:hover:not(:disabled) {
+  border-color: #344960;
+  background: #182a40;
+  color: #f1f5f9;
+}
+
+.app-shell--polished .text-button.danger {
+  color: #fda4af;
+}
+
+.app-shell--polished .secondary-action:hover,
+.app-shell--polished .secondary-button:hover,
+.app-shell--polished .back-button:hover {
+  border-color: #4a6887;
+  background: #20364f;
+  color: #f8fafc;
+}
+
+.app-shell--polished .table-edit {
+  border-color: #355979;
+  background: rgba(56, 153, 207, 0.12);
+  color: #9bdaf2;
+}
+
+.app-shell--polished .table-delete {
+  border-color: rgba(248, 113, 113, 0.35);
+  background: rgba(248, 113, 113, 0.1);
+  color: #fda4af;
+}
+
+.app-shell--polished button:focus-visible,
+.app-shell--polished a:focus-visible,
+.app-shell--polished input:focus-visible,
+.app-shell--polished select:focus-visible,
+.app-shell--polished textarea:focus-visible {
+  outline: 3px solid rgba(56, 189, 222, 0.56);
+  outline-offset: 2px;
+}
+
+.app-shell--polished button:disabled {
+  cursor: not-allowed;
+  border-color: #3b4e64;
+  background: #1a2a3d;
+  color: #afbdcf;
+  box-shadow: none;
+  opacity: 1;
+  transform: none;
+}
+
+.app-shell--polished .form-group label,
+.app-shell--polished .python-editor label,
+.app-shell--polished .profile-picture-field label {
+  color: #dce6f2;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.app-shell--polished input:not([type="checkbox"]):not([type="radio"]):not([type="file"]),
+.app-shell--polished select,
+.app-shell--polished textarea {
+  border-color: #344960;
+  border-radius: 9px;
+  background: #0c1829;
+  color: #e6edf6;
+  font: inherit;
+  font-size: 16px;
+}
+
+.app-shell--polished input:not([type="checkbox"]):not([type="radio"]):not([type="file"]),
+.app-shell--polished select {
+  min-height: 42px;
+  padding: 9px 11px;
+}
+
+.app-shell--polished textarea {
+  padding: 11px 12px;
+  line-height: 1.6;
+}
+
+.app-shell--polished input::placeholder,
+.app-shell--polished textarea::placeholder {
+  color: #8294ab;
+  opacity: 1;
+}
+
+.app-shell--polished .user-form-panel,
+.app-shell--polished .python-editor {
+  background: #142238;
+}
+
+.app-shell--polished .form-panel-header h3,
+.app-shell--polished .python-editor h2 {
+  color: #f1f5f9;
+  font-size: 19px;
+}
+
+.app-shell--polished .form-panel-header .close-button {
+  width: 38px;
+  height: 38px;
+  border: 1px solid #344960;
+  background: #1a2b42;
+  color: #dce6f2;
+}
+
+.app-shell--polished .form-panel-header .close-button:hover {
+  background: #273b54;
+}
+
+.app-shell--polished .user-form-panel small,
+.app-shell--polished .python-editor small,
+.app-shell--polished .file-help {
+  color: #aab8ca;
+  font-size: 14px;
+  line-height: 1.55;
+}
+
+.app-shell--polished .table-wrapper {
+  border-color: #2b3b52;
+  border-radius: 10px;
+}
+
+.app-shell--polished .admin-table {
+  min-width: 680px;
+}
+
+.app-shell--polished .admin-table th {
+  padding: 12px 14px;
+  border-bottom-color: #2b3b52;
+  background: #172840;
+  color: #aebed1;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+}
+
+.app-shell--polished .admin-table td {
+  padding: 13px 14px;
+  border-bottom-color: #26364b;
+  color: #d1dce9;
+  font-size: 15px;
+}
+
+.app-shell--polished .admin-table tbody tr:hover {
+  background: rgba(148, 163, 184, 0.055);
+}
+
+.app-shell--polished .table-empty,
+.app-shell--polished .table-footer {
+  color: #aab8ca !important;
+}
+
+.app-shell--polished .empty-state {
+  border: 1px dashed #3a4d65;
+  border-radius: 12px;
+  background: #142238;
+  color: #b1bfd1;
+}
+
+.app-shell--polished .empty-state h3 {
+  color: #eef4fa;
+  font-size: 19px;
+  font-weight: 650;
+}
+
+.app-shell--polished .empty-state p {
+  max-width: 66ch;
+  color: #aab8ca;
+  font-size: 15px;
+  line-height: 1.65;
+}
+
+.app-shell--polished .loading-page {
+  min-height: 180px;
+  border: 1px solid #2b3b52;
+  border-radius: 12px;
+  background: #111f33;
+}
+
+.app-shell--polished .loading-page h3 {
+  color: #edf4fb;
+  font-size: 16px;
+}
+
+.app-shell--polished .loading-page p,
+.app-shell--polished .loading-text {
+  color: #aab8ca;
+  font-size: 15px;
+}
+
+.app-shell--polished .error-message,
+.app-shell--polished .action-message.error {
+  border: 1px solid rgba(248, 113, 113, 0.36);
+  border-radius: 10px;
+  background: rgba(127, 29, 29, 0.23);
+  color: #fecaca;
+}
+
+.app-shell--polished .success-message,
+.app-shell--polished .action-message.success {
+  border: 1px solid rgba(52, 211, 153, 0.33);
+  border-radius: 10px;
+  background: rgba(6, 78, 59, 0.25);
+  color: #a7f3d0;
+}
+
+.app-shell--polished .database-layout {
+  grid-template-columns: minmax(220px, 0.68fr) minmax(0, 2fr);
+  gap: 20px;
+}
+
+.app-shell--polished .database-table-item {
+  min-height: 58px;
+  border-color: #2b3b52;
+  border-radius: 10px;
+  background: #142238;
+  color: #e2eaf4;
+}
+
+.app-shell--polished .database-table-item:hover,
+.app-shell--polished .database-table-item.active {
+  border-color: #3887a8;
+  background: #17314a;
+}
+
+.app-shell--polished .database-table-item strong {
+  color: #eef4fb;
+  font-size: 15px;
+}
+
+.app-shell--polished .database-table-item small,
+.app-shell--polished .database-schema small {
+  color: #bac7d7;
+  font-size: 13px;
+}
+
+.app-shell--polished .database-table-item b {
+  color: #84d5ed;
+  font-size: 14px;
+}
+
+.app-shell--polished .database-schema span {
+  padding: 7px 9px;
+  border: 1px solid #2b3b52;
+  background: #172840;
+}
+
+.app-shell--polished .database-schema strong {
+  color: #e2eaf4;
+  font-size: 13px;
+}
+
+.app-shell--polished .database-module-controls label {
+  color: #c4d0df;
+  font-size: 14px;
+}
+
+.app-shell--polished .database-module-controls select {
+  min-height: 38px;
+}
+
+.app-shell--polished .profile-summary {
+  border: 1px solid #294866;
+  background: linear-gradient(145deg, #142940, #123958);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.18);
+}
+
+.app-shell--polished .profile-summary p {
+  color: #c1d0df;
+  font-size: 15px;
+}
+
+.app-shell--polished .profile-picture-field {
+  border-color: #2b3b52;
+  background: #172840;
+}
+
+.app-shell--polished .profile-picture-field p {
+  color: #aab8ca;
+  font-size: 14px;
+}
+
+.app-shell--polished .page .detail-row span,
+.app-shell--polished .dashboard-metric-card__label,
+.app-shell--polished .page .resource-bottom,
+.app-shell--polished .page .resource-bottom strong,
+.app-shell--polished .service-meta span,
+.app-shell--polished .log-time,
+.app-shell--polished .log-message,
+.app-shell--polished .page .health-status,
+.app-shell--polished .page .health-card-content > span,
+.app-shell--polished .page .system-detail-card span {
+  color: #bac8d8;
+  font-size: 14px;
+  line-height: 1.55;
+}
+
+.app-shell--polished .page .detail-row strong,
+.app-shell--polished .page .health-card-content > strong,
+.app-shell--polished .page .system-detail-card strong {
+  color: #eef4fa;
+  font-size: 16px;
+  line-height: 1.45;
+}
+
+.app-shell--polished .dashboard-metric-card__content p,
+.app-shell--polished .resource-card__loading {
+  color: #bac8d8;
+  font-size: 14px;
+  line-height: 1.55;
+}
+
+.app-shell--polished .service-card-new {
+  border-color: #2b3b52;
+  border-radius: 11px;
+  background: #111f33;
+  color: #e6edf6;
+}
+
+.app-shell--polished .service-card-new:hover {
+  border-color: #405a74;
+  background: #14243a;
+}
+
+.app-shell--polished .service-name-row h3 {
+  color: #f1f5f9;
+  font-size: 16px;
+  line-height: 1.4;
+}
+
+.app-shell--polished .service-meta {
+  gap: 10px 18px;
+}
+
+.app-shell--polished .service-meta strong {
+  color: #e6edf6;
+  font-size: 14px;
+}
+
+.app-shell--polished .service-note {
+  border-color: #344960;
+  background: #172840;
+}
+
+.app-shell--polished .service-note p {
+  color: #c0ccda;
+  font-size: 14px;
+}
+
+.app-shell--polished .page .health-card,
+.app-shell--polished .page .system-detail-card {
+  border-color: #2b3b52;
+  border-radius: 10px;
+  background: #111f33;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.12);
+}
+
+.app-shell--polished .page .system-detail-card {
+  padding: 15px;
+}
+
+.app-shell--polished .page .health-card-icon {
+  background: #1a2b42;
+  color: #b7dce8;
+  font-size: 11px;
+}
+
+.app-shell--polished .log-entry {
+  min-height: 58px;
+  border-bottom-color: #2b3b52;
+}
+
+.app-shell--polished .log-time {
+  color: #bac8d8;
+  font-size: 13px;
+}
+
+.app-shell--polished .log-level span {
+  padding: 4px 7px;
+  border: 1px solid #35526b;
+  border-radius: 5px;
+  background: #172840;
+  color: #c5e7f1;
+  font-size: 12px;
+}
+
+.app-shell--polished .log-message {
+  color: #d6e0eb;
+  font-size: 14px;
+}
+
+.app-shell--polished .live-tag {
+  color: #c4e6f0;
+  font-size: 12px;
+}
+
+.app-shell--polished .health-badge {
+  min-height: 28px;
+  padding: 5px 9px;
+  border-color: #38536c;
+  background: #172840;
+  color: #c4e6f0;
+  font-size: 13px;
+}
+
+.app-shell--polished .page:not(:has(.dashboard-hero, .topic-learning-scroll, .slide-editor-page)) .stat-content > span,
+.app-shell--polished .page:not(:has(.dashboard-hero, .topic-learning-scroll, .slide-editor-page)) .stat-content small {
+  color: #bac8d8;
+  font-size: 14px;
+  line-height: 1.55;
+}
+
+.app-shell--polished .page:not(:has(.dashboard-hero, .topic-learning-scroll, .slide-editor-page)) .resource-bottom,
+.app-shell--polished .page:not(:has(.dashboard-hero, .topic-learning-scroll, .slide-editor-page)) .resource-bottom strong {
+  color: #bac8d8;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.app-shell--polished .page:not(:has(.dashboard-hero, .topic-learning-scroll, .slide-editor-page)) .panel-header-new.ui-panel-header h3 {
+  color: #f1f5f9;
+  font-size: 20px;
+}
+
+.app-shell--polished .page:not(:has(.dashboard-hero, .topic-learning-scroll, .slide-editor-page)) .panel-header-new.ui-panel-header p {
+  color: #bac8d8 !important;
+  font-size: 15px !important;
+  line-height: 1.6;
+}
+
+.app-shell--polished .page:not(:has(.dashboard-hero, .topic-learning-scroll, .slide-editor-page)) .empty-state h3 {
+  color: #eef4fa;
+  font-size: 19px;
+}
+
+.app-shell--polished .page:not(:has(.dashboard-hero, .topic-learning-scroll, .slide-editor-page)) .empty-state p {
+  color: #bac8d8;
+  font-size: 15px;
+  line-height: 1.65;
+}
+
+.app-shell--polished .page:not(:has(.dashboard-hero, .topic-learning-scroll, .slide-editor-page)) .user-form-panel label {
+  color: #dce6f2;
+  font-size: 15px;
+}
+
+.app-shell--polished .python-module-page {
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+.app-shell--polished .python-module-page > .page-hero {
+  min-height: 0;
+  padding: clamp(24px, 4vw, 42px);
+  border-color: #2d4c65;
+  background: linear-gradient(120deg, #15314a, #102239 72%);
+}
+
+.app-shell--polished .python-module-page > .page-hero h2 {
+  font-size: clamp(28px, 3vw, 36px);
+  letter-spacing: -0.035em;
+}
+
+.app-shell--polished .python-module-page > .page-hero p {
+  margin: 10px auto 0;
+  font-size: 15px;
+}
+
+.app-shell--polished .python-module-toolbar,
+.app-shell--polished .python-manage-banner {
+  gap: 14px;
+  margin: 18px 0 28px;
+  padding: 14px 17px;
+  border-color: #2b3b52;
+  border-radius: 11px;
+  background: #111f33;
+}
+
+.app-shell--polished .python-module-toolbar p,
+.app-shell--polished .python-playground-note,
+.app-shell--polished .python-framework-note,
+.app-shell--polished .python-manage-banner > span {
+  color: #c0ccda;
+  font-size: 15px;
+  line-height: 1.65;
+}
+
+.app-shell--polished .python-playground-note {
+  padding: 7px 10px;
+  border: 1px solid #33485f;
+  border-radius: 8px;
+  background: #172840;
+  color: #c1d0df;
+}
+
+.app-shell--polished .python-level-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.app-shell--polished .python-level-card {
+  position: relative;
+  min-height: 250px;
+  gap: 14px;
+  padding: 21px;
+  overflow: hidden;
+  border: 1px solid #2b3b52;
+  border-top: 3px solid #328db7;
+  border-radius: 14px;
+  background: #142238;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.14);
+  transition: border-color 160ms ease, transform 160ms ease, box-shadow 160ms ease;
+}
+
+.app-shell--polished .python-level-card:hover {
+  border-color: #45617e;
+  border-top-color: #67c9e4;
+  box-shadow: 0 7px 18px rgba(0, 0, 0, 0.2);
+  transform: translateY(-1px);
+}
+
+.app-shell--polished .python-level-card--2 {
+  border-top-color: #7187d9;
+}
+
+.app-shell--polished .python-level-card--3 {
+  border-top-color: #9c7bca;
+}
+
+.app-shell--polished .python-level-card__number {
+  width: 44px;
+  height: 44px;
+  border: 1px solid #38617d;
+  border-radius: 12px;
+  background: #19344c;
+  color: #b7e8f5;
+  font-size: 14px;
+}
+
+.app-shell--polished .python-level-card--2 .python-level-card__number {
+  border-color: #455585;
+  background: #252e50;
+  color: #d1d9ff;
+}
+
+.app-shell--polished .python-level-card--3 .python-level-card__number {
+  border-color: #594771;
+  background: #302642;
+  color: #e2d0ff;
+}
+
+.app-shell--polished .python-level-card h2 {
+  margin: 0;
+  color: #f1f5f9;
+  font-size: 22px;
+  font-weight: 650;
+  line-height: 1.3;
+  letter-spacing: -0.02em;
+}
+
+.app-shell--polished .python-level-card p {
+  color: #c0ccda;
+  font-size: 15px;
+  line-height: 1.65;
+}
+
+.app-shell--polished .python-level-card .live-tag,
+.app-shell--polished .python-learning-section .live-tag {
+  display: inline-flex;
+  align-items: center;
+  min-height: 28px;
+  padding: 5px 9px;
+  border: 1px solid #334960;
+  border-radius: 999px;
+  background: #172840;
+  color: #c4e6f0;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+}
+
+.app-shell--polished .python-card-actions {
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.app-shell--polished .python-lesson-card {
+  border-color: #2b3b52;
+  border-radius: 12px;
+  background: #111f33;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.12);
+}
+
+.app-shell--polished .python-lesson-card:hover {
+  border-color: #46617b;
+  background: #14243a;
+  transform: translateY(-1px);
+}
+
+.app-shell--polished .python-lesson-card .lecture-number {
+  width: 66px;
+  min-width: 66px;
+  justify-content: center;
+  padding-top: 22px;
+  background: #172840;
+  color: #8ed6ed;
+  font-size: 17px;
+}
+
+.app-shell--polished .python-lesson-card .lecture-content {
+  padding: 18px 20px;
+}
+
+.app-shell--polished .python-lesson-card .lecture-content h3 {
+  color: #f1f5f9;
+  font-size: 18px;
+}
+
+.app-shell--polished .python-lesson-card .lecture-content p {
+  color: #c0ccda;
+  font-size: 15px;
+  line-height: 1.65;
+}
+
+.app-shell--polished .python-learning-section > .back-button {
+  margin: 0 0 16px;
+}
+
+.app-shell--polished .python-lesson-layout {
+  display: grid;
+  grid-template-columns: minmax(220px, 270px) minmax(0, 1fr);
+  align-items: start;
+  gap: clamp(18px, 2.4vw, 32px);
+}
+
+.app-shell--polished .python-lesson-outline {
+  position: sticky;
+  top: 98px;
+  max-height: calc(100vh - 120px);
+  overflow: auto;
+  border: 1px solid #2b3b52;
+  border-radius: 12px;
+  background: #111f33;
+}
+
+.app-shell--polished .python-lesson-outline__header {
+  display: grid;
+  gap: 8px;
+  padding: 15px;
+  border-bottom: 1px solid #2b3b52;
+}
+
+.app-shell--polished .python-lesson-outline__header strong {
+  color: #f1f5f9;
+  font-size: 15px;
+}
+
+.app-shell--polished .python-lesson-outline__header .back-button {
+  justify-self: start;
+  min-height: 40px;
+  margin: 2px 0 0;
+  padding: 8px 10px;
+  font-size: 14px;
+}
+
+.app-shell--polished .python-lesson-outline__list {
+  display: grid;
+  gap: 3px;
+  padding: 8px;
+}
+
+.app-shell--polished .python-lesson-outline__item {
+  display: grid;
+  grid-template-columns: 30px minmax(0, 1fr);
+  align-items: start;
+  gap: 9px;
+  width: 100%;
+  min-height: 42px;
+  padding: 9px 8px;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  background: transparent;
+  color: #bfccdb;
+  text-align: left;
+  cursor: pointer;
+}
+
+.app-shell--polished .python-lesson-outline__item > span {
+  padding-top: 1px;
+  color: #8ea2ba;
+  font: 700 12px/1.45 ui-monospace, SFMono-Regular, Consolas, monospace;
+}
+
+.app-shell--polished .python-lesson-outline__item strong {
+  font-size: 14px;
+  font-weight: 550;
+  line-height: 1.45;
+}
+
+.app-shell--polished .python-lesson-outline__item:hover {
+  background: #172840;
+  color: #f1f5f9;
+}
+
+.app-shell--polished .python-lesson-outline__item.is-active {
+  border-color: #315b74;
+  background: rgba(34, 145, 190, 0.16);
+  color: #eefaff;
+}
+
+.app-shell--polished .python-lesson-outline__item.is-active > span {
+  color: #86d7ed;
+}
+
+.app-shell--polished .python-lesson-main {
+  min-width: 0;
+}
+
+.app-shell--polished .python-lesson-position {
+  margin: 1px 0 12px;
+  color: #bac8d8;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.app-shell--polished .python-lesson-position span {
+  padding: 0 6px;
+  color: #647891;
+}
+
+.app-shell--polished .python-lesson-hero {
+  margin-bottom: 18px !important;
+  padding: 22px 24px !important;
+}
+
+.app-shell--polished .python-lesson-hero h2 {
+  font-size: clamp(26px, 2.4vw, 32px) !important;
+}
+
+.app-shell--polished .python-lesson-content .lecture-reader {
+  padding: clamp(19px, 3.2vw, 34px);
+}
+
+.app-shell--polished .python-lesson-content .python-lesson {
+  max-width: 78ch;
+  margin: 0 auto;
+  color: #d8e2ef;
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+.app-shell--polished .python-lesson > section {
+  margin: 0 0 18px;
+  padding: 18px 20px;
+  border: 1px solid #2c3f56;
+  border-radius: 11px;
+  background: #142238;
+}
+
+.app-shell--polished .python-lesson > section:last-child {
+  margin-bottom: 0;
+  border-left: 3px solid #7187d9;
+  background: #17253d;
+}
+
+.app-shell--polished .python-lesson > section:nth-of-type(2) {
+  border-left: 3px solid #4a9abb;
+  background: #14263a;
+}
+
+.app-shell--polished .python-lesson > .source-outline {
+  border-color: #3b5068;
+  border-left: 3px solid #7187d9;
+  background: #17253d;
+}
+
+.app-shell--polished .python-lesson h3 {
+  margin: 0 0 10px;
+  color: #f2f6fb;
+  font-size: 20px;
+  font-weight: 650;
+  line-height: 1.4;
+}
+
+.app-shell--polished .python-lesson h4 {
+  margin: 20px 0 8px;
+  color: #c6e8f2;
+  font-size: 17px;
+  font-weight: 650;
+}
+
+.app-shell--polished .python-lesson p {
+  margin: 0 0 11px;
+  color: #c9d4e0;
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+.app-shell--polished .python-lesson p:last-child {
+  margin-bottom: 0;
+}
+
+.app-shell--polished .python-lesson strong {
+  color: #e9f5fb;
+}
+
+.app-shell--polished .python-lesson pre {
+  max-width: 100%;
+  overflow-x: auto;
+  margin: 12px 0 0;
+  padding: 17px 18px;
+  border: 1px solid #30465e;
+  border-radius: 9px;
+  background: #0b1726;
+  color: #d7e6f3;
+  font: 14px/1.7 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  tab-size: 4;
+}
+
+.app-shell--polished .python-lesson pre code {
+  display: block;
+  padding: 0;
+  border-radius: 0;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  white-space: pre;
+}
+
+.app-shell--polished .python-lesson code:not(pre code) {
+  display: inline;
+  padding: 2px 5px;
+  border: 1px solid #30465e;
+  border-radius: 5px;
+  background: #172840;
+  color: #b9e7f2;
+  font: 0.9em ui-monospace, SFMono-Regular, Consolas, monospace;
+}
+
+.app-shell--polished .python-lesson-pager {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 18px;
+}
+
+.app-shell--polished .python-framework-note {
+  margin-top: 24px;
+  padding: 14px 16px;
+  border: 1px solid #31465d;
+  border-left: 3px solid #7586cf;
+  border-radius: 9px;
+  background: #142238;
+}
+
+.app-shell--polished .linux-tutor-shell {
+  max-width: 1000px;
+  border-color: #2e435c;
+  border-radius: 16px;
+  background: #111f33;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.16);
+}
+
+.app-shell--polished .linux-tutor-orb {
+  border: 1px solid #3d6a83;
+  background: #1c4d68;
+  box-shadow: none;
+}
+
+.app-shell--polished .linux-tutor-intro h3 {
+  color: #f1f5f9;
+  font-size: 22px;
+  line-height: 1.3;
+}
+
+.app-shell--polished .linux-tutor-intro p,
+.app-shell--polished .linux-tutor-safety {
+  color: #c0ccda;
+  font-size: 15px;
+  line-height: 1.65;
+}
+
+.app-shell--polished .linux-tutor-provider,
+.app-shell--polished .linux-tutor-message span {
+  color: #8ed6ed;
+  font-size: 13px;
+}
+
+.app-shell--polished .linux-tutor-messages {
+  gap: 12px;
+}
+
+.app-shell--polished .linux-tutor-message {
+  border-color: #344b64;
+  border-radius: 12px;
+  background: #172840;
+}
+
+.app-shell--polished .linux-tutor-message.assistant {
+  background: #172840;
+}
+
+.app-shell--polished .linux-tutor-message.user {
+  background: #173a52;
+}
+
+.app-shell--polished .linux-tutor-message p {
+  color: #e5edf6;
+  font-size: 16px;
+  line-height: 1.65;
+}
+
+.app-shell--polished .linux-tutor-suggestions button {
+  min-height: 40px;
+  border-color: #3b6177;
+  border-radius: 9px;
+  background: #172b42;
+  color: #c6e6f0;
+  font-size: 14px;
+}
+
+.app-shell--polished .linux-tutor-suggestions button:hover {
+  border-color: #5b8aa5;
+  background: #1c3852;
+}
+
+.app-shell--polished .linux-tutor-form textarea {
+  border-color: #344960;
+  border-radius: 10px;
+  background: #0c1829;
+  color: #e6edf6;
+  font-size: 16px;
+}
+
+.app-shell--polished .linux-tutor-form button {
+  min-height: 42px;
+  border: 1px solid #2687ad;
+  border-radius: 9px;
+  background: #177ca5;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 650;
+}
+
+.app-shell--polished .linux-tutor-form button:hover:not(:disabled) {
+  background: #1b8bb7;
+}
+
+@media (max-width: 1100px) {
+  .app-shell--polished .python-level-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 900px) {
+  .app-shell--polished .database-layout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .app-shell--polished .python-lesson-layout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .app-shell--polished .python-lesson-outline {
+    position: static;
+    max-height: none;
+  }
+
+  .app-shell--polished .python-lesson-outline__list {
+    max-height: 250px;
+    overflow: auto;
+  }
+}
+
+@media (max-width: 700px) {
+  .app-shell--polished .topbar {
+    height: 68px;
+    padding: 0 14px;
+  }
+
+  .app-shell--polished .topbar h1 {
+    font-size: 17px;
+  }
+
+  .app-shell--polished .topbar-right {
+    gap: 10px;
+  }
+
+  .app-shell--polished .topbar-server {
+    display: none;
+  }
+
+  .app-shell--polished .topbar-user > div:last-child {
+    display: none;
+  }
+
+  .app-shell--polished .content-area {
+    padding: 18px 14px 28px;
+  }
+
+  .app-shell--polished .page > .page-hero:not(.dashboard-page-header) {
+    margin-bottom: 19px;
+    padding: 18px;
+  }
+
+  .app-shell--polished .page > .page-hero:not(.dashboard-page-header) h2 {
+    font-size: 25px;
+  }
+
+  .app-shell--polished .page > .page-hero:not(.dashboard-page-header) p {
+    font-size: 14px;
+  }
+
+  .app-shell--polished .section-heading {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 7px;
+    margin-top: 24px;
+  }
+
+  .app-shell--polished .section-heading h2 {
+    font-size: 20px;
+  }
+
+  .app-shell--polished .panel {
+    padding: 16px;
+  }
+
+  .app-shell--polished .panel-header-new {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .app-shell--polished .form-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .app-shell--polished .user-toolbar {
+    flex-wrap: wrap;
+  }
+
+  .app-shell--polished .filter-select {
+    flex: 1 1 130px;
+    min-width: 0;
+  }
+
+  .app-shell--polished .profile-picture-field {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .app-shell--polished .python-module-toolbar,
+  .app-shell--polished .python-manage-banner {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .app-shell--polished .python-module-toolbar__actions {
+    width: 100%;
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .app-shell--polished .python-level-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 13px;
+  }
+
+  .app-shell--polished .python-level-card {
+    min-height: 0;
+    padding: 19px;
+  }
+
+  .app-shell--polished .python-lesson-card {
+    flex-direction: column;
+  }
+
+  .app-shell--polished .python-lesson-card .lecture-number {
+    width: auto;
+    min-width: 0;
+    justify-content: flex-start;
+    padding: 10px 16px 0;
+    background: transparent;
+    font-size: 13px;
+  }
+
+  .app-shell--polished .python-lesson-card .lecture-content {
+    padding: 12px 16px 16px;
+  }
+
+  .app-shell--polished .python-lesson-content .lecture-reader {
+    padding: 14px;
+  }
+
+  .app-shell--polished .python-lesson > section {
+    padding: 15px;
+  }
+
+  .app-shell--polished .python-lesson pre {
+    margin-right: -2px;
+    padding: 13px;
+    font-size: 14px;
+  }
+
+  .app-shell--polished .python-lesson-pager {
+    flex-wrap: wrap;
+  }
+
+  .app-shell--polished .python-lesson-pager button {
+    flex: 1 1 140px;
+  }
+
+  .app-shell--polished .linux-tutor-shell {
+    padding: 17px;
+  }
+
+  .app-shell--polished .linux-tutor-intro {
+    align-items: flex-start;
+    gap: 13px;
+  }
+
+  .app-shell--polished .linux-tutor-orb {
+    width: 48px;
+    height: 48px;
+    border-radius: 14px;
+    font-size: 23px;
+  }
+
+  .app-shell--polished .linux-tutor-intro h3 {
+    font-size: 20px;
+  }
+
+  .app-shell--polished .linux-tutor-form {
+    flex-direction: column;
+  }
+
+  .app-shell--polished .linux-tutor-form button {
+    width: 100%;
+  }
+
+  .app-shell--polished .linux-tutor-message {
+    max-width: 94%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .app-shell--polished *,
+  .app-shell--polished *::before,
+  .app-shell--polished *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Python course implementation from the lesson-page PDF. Every selector stays
+   inside the polished shell so the System Administration page is untouched. */
+.app-shell--polished .python-course-progress {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(140px, 240px) auto;
+  align-items: center;
+  gap: 20px;
+  margin: 0 0 28px;
+  padding: 18px 20px;
+  border: 1px solid #30465e;
+  border-radius: 13px;
+  background: linear-gradient(135deg, #14263c 0%, #111f33 100%);
+}
+
+.app-shell--polished .python-course-progress__copy {
+  display: grid;
+  gap: 5px;
+}
+
+.app-shell--polished .python-course-progress__copy strong {
+  color: #f0f6fc;
+  font-size: 18px;
+}
+
+.app-shell--polished .python-course-progress__copy > span:last-child {
+  color: #b7c5d6;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.app-shell--polished .python-course-progress__bar {
+  height: 10px;
+  overflow: hidden;
+  border: 1px solid #31475f;
+  border-radius: 999px;
+  background: #0b1726;
+}
+
+.app-shell--polished .python-course-progress__bar span {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  background: #53bdd8;
+  transition: width 180ms ease;
+}
+
+.app-shell--polished .python-course-overview__actions,
+.app-shell--polished .python-course-extra,
+.app-shell--polished .python-spec-editor-toolbar,
+.app-shell--polished .python-spec-completion,
+.app-shell--polished .python-spec-quiz-result {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.app-shell--polished .python-course-extras {
+  margin-top: 24px;
+}
+
+.app-shell--polished .python-course-extra {
+  padding: 18px 20px;
+  border: 1px solid #334761;
+  border-left: 3px solid #9b8ae1;
+  border-radius: 12px;
+  background: #142238;
+}
+
+.app-shell--polished .python-course-extra h3 {
+  margin: 4px 0 5px;
+  color: #f0f5fb;
+  font-size: 19px;
+}
+
+.app-shell--polished .python-course-extra p {
+  margin: 0;
+  color: #c0ccda;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.app-shell--polished .python-spec-count-note {
+  display: block;
+  margin-top: 8px;
+  color: #f5d99c;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.app-shell--polished .python-spec-lesson,
+.app-shell--polished .python-spec-special-page {
+  width: min(100%, 920px);
+  margin: 0 auto;
+  color: #dbe5f0;
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+.app-shell--polished .python-spec-breadcrumb {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 9px;
+  margin: 3px 0 12px;
+  color: #aebed1;
+  font-size: 14px;
+}
+
+.app-shell--polished .python-spec-breadcrumb button {
+  min-height: 34px;
+  padding: 4px 2px;
+  border: 0;
+  background: transparent;
+  color: #91dff2;
+  cursor: pointer;
+}
+
+.app-shell--polished .python-spec-breadcrumb button:hover {
+  color: #d8f6ff;
+  text-decoration: underline;
+}
+
+.app-shell--polished .python-spec-breadcrumb [aria-current="page"] {
+  color: #e3edf7;
+  font-weight: 600;
+}
+
+.app-shell--polished .python-spec-status-strip {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 9px;
+  margin: -6px 0 18px;
+}
+
+.app-shell--polished .python-spec-level-chip,
+.app-shell--polished .python-spec-status,
+.app-shell--polished .python-spec-score {
+  display: inline-flex;
+  align-items: center;
+  min-height: 30px;
+  padding: 4px 10px;
+  border: 1px solid #36516a;
+  border-radius: 999px;
+  background: #14263c;
+  color: #d7e5f2;
+  font-size: 13px;
+  font-weight: 650;
+}
+
+.app-shell--polished .python-spec-level-chip--basic {
+  border-color: #2d6372;
+  background: #12303b;
+  color: #a9e7f1;
+}
+
+.app-shell--polished .python-spec-level-chip--intermediate {
+  border-color: #4a5d91;
+  background: #202c4a;
+  color: #ccd6ff;
+}
+
+.app-shell--polished .python-spec-level-chip--advanced {
+  border-color: #735d91;
+  background: #30243e;
+  color: #e2d0fb;
+}
+
+.app-shell--polished .python-spec-status.is-complete,
+.app-shell--polished .python-spec-quiz-result.is-passed {
+  border-color: #26745d;
+  background: #11372d;
+  color: #b7f0d9;
+}
+
+.app-shell--polished .python-spec-status.is-progress {
+  border-color: #4b698c;
+  background: #172c45;
+  color: #c6def5;
+}
+
+.app-shell--polished .python-spec-lesson > .python-lesson-hero,
+.app-shell--polished .python-spec-special-page > .page-hero {
+  margin: 0 0 20px !important;
+  padding: 24px 26px !important;
+  border: 1px solid #2e465f;
+  border-radius: 13px;
+  background: #111f33;
+}
+
+.app-shell--polished .python-spec-lesson > .python-lesson-hero h2,
+.app-shell--polished .python-spec-special-page > .page-hero h2 {
+  color: #f5f8fc;
+  font-size: clamp(27px, 3vw, 32px) !important;
+  line-height: 1.2;
+}
+
+.app-shell--polished .python-spec-section {
+  margin: 0 0 18px;
+  padding: clamp(18px, 2.7vw, 25px);
+  border: 1px solid #2c425a;
+  border-radius: 13px;
+  background: #111f33;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
+}
+
+.app-shell--polished .python-spec-before {
+  border-left: 3px solid #4ca9c4;
+  background: #13263a;
+}
+
+.app-shell--polished .python-spec-apply {
+  border-left: 3px solid #d0a45d;
+  background: #252338;
+}
+
+.app-shell--polished .python-spec-wrap {
+  border-left: 3px solid #7285c9;
+  background: #17243a;
+}
+
+.app-shell--polished .python-spec-section-heading {
+  display: flex;
+  align-items: flex-start;
+  gap: 13px;
+  margin: 0 0 14px;
+}
+
+.app-shell--polished .python-spec-section-heading > span {
+  display: inline-grid;
+  flex: 0 0 38px;
+  min-height: 34px;
+  place-items: center;
+  border: 1px solid #36536c;
+  border-radius: 9px;
+  background: #172b42;
+  color: #9edeee;
+  font: 700 12px/1 ui-monospace, SFMono-Regular, Consolas, monospace;
+}
+
+.app-shell--polished .python-spec-section-heading .section-label {
+  margin: 0 0 3px;
+  color: #9bb1c7;
+  font-size: 12px;
+  font-weight: 750;
+  letter-spacing: 0.1em;
+}
+
+.app-shell--polished .python-spec-section-heading h3 {
+  margin: 0;
+  color: #f2f6fb;
+  font-size: 22px;
+  font-weight: 680;
+  line-height: 1.3;
+}
+
+.app-shell--polished .python-spec-section h4 {
+  margin: 17px 0 8px;
+  color: #e4eff8;
+  font-size: 17px;
+  font-weight: 650;
+}
+
+.app-shell--polished .python-spec-section p,
+.app-shell--polished .python-spec-special-page p {
+  color: #c8d5e3;
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+.app-shell--polished .python-spec-section p:last-child {
+  margin-bottom: 0;
+}
+
+.app-shell--polished .python-spec-section strong,
+.app-shell--polished .python-spec-special-page strong {
+  color: #f0f5fb;
+}
+
+.app-shell--polished .python-spec-before > p {
+  margin: 0 0 9px;
+}
+
+.app-shell--polished .python-spec-prereq-link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 40px;
+  margin: 2px 0 3px;
+  padding: 7px 11px;
+  border: 1px solid #315b74;
+  border-radius: 8px;
+  background: #142e43;
+  color: #b8eafa;
+  cursor: pointer;
+}
+
+.app-shell--polished .python-spec-prereq-link:hover {
+  background: #1b3d56;
+}
+
+.app-shell--polished .python-spec-outcomes,
+.app-shell--polished .python-spec-validation ul,
+.app-shell--polished .python-spec-section > ul {
+  display: grid;
+  gap: 7px;
+  margin: 8px 0 0;
+  padding-left: 22px;
+  color: #d3deea;
+  font-size: 15px;
+  line-height: 1.65;
+}
+
+.app-shell--polished .python-spec-ppt-outline {
+  margin: 0 0 13px;
+  border: 1px solid #354b63;
+  border-radius: 9px;
+  background: #132338;
+}
+
+.app-shell--polished .python-spec-ppt-outline summary {
+  padding: 10px 13px;
+  color: #dce9f5;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 650;
+}
+
+.app-shell--polished .python-spec-ppt-outline p {
+  margin: 0;
+  padding: 0 13px 12px;
+  color: #c1d0df;
+  font-size: 15px;
+}
+
+.app-shell--polished .python-spec-source-label {
+  margin: 0 0 12px;
+  color: #a8bbcf !important;
+  font-size: 14px !important;
+}
+
+.app-shell--polished .python-spec-learning-points {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 9px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.app-shell--polished .python-spec-learning-points li {
+  display: grid;
+  grid-template-columns: 28px minmax(0, 1fr);
+  align-items: start;
+  gap: 10px;
+  min-height: 58px;
+  padding: 11px;
+  border: 1px solid #293f56;
+  border-radius: 9px;
+  background: #14263b;
+}
+
+.app-shell--polished .python-spec-learning-points li > span {
+  color: #83cee2;
+  font: 700 12px/1.5 ui-monospace, SFMono-Regular, Consolas, monospace;
+}
+
+.app-shell--polished .python-spec-learning-points p {
+  margin: 0;
+  color: #d0dbe7;
+  font-size: 15px;
+  line-height: 1.55;
+}
+
+.app-shell--polished .python-spec-explanation,
+.app-shell--polished .python-spec-accuracy,
+.app-shell--polished .python-spec-validation,
+.app-shell--polished .python-spec-submit-state {
+  margin-top: 14px;
+  padding: 13px 15px;
+  border: 1px solid #344b63;
+  border-radius: 9px;
+  background: #172a40;
+}
+
+.app-shell--polished .python-spec-explanation {
+  border-left: 3px solid #4eacc6;
+}
+
+.app-shell--polished .python-spec-accuracy {
+  border-left: 3px solid #d7a956;
+  background: #2a2934;
+}
+
+.app-shell--polished .python-spec-explanation p,
+.app-shell--polished .python-spec-accuracy p {
+  margin: 4px 0 0;
+  color: #cfdae6;
+  font-size: 15px;
+}
+
+.app-shell--polished .python-spec-code,
+.app-shell--polished .python-spec-output pre,
+.app-shell--polished .python-spec-sample-input pre {
+  max-width: 100%;
+  overflow: auto;
+  margin: 10px 0 0;
+  padding: 15px 17px;
+  border: 1px solid #30465e;
+  border-radius: 9px;
+  background: #091522;
+  color: #d8e8f5;
+  font: 14px/1.7 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  tab-size: 4;
+  white-space: pre;
+}
+
+.app-shell--polished .python-spec-code code {
+  display: block;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  line-height: inherit;
+  white-space: pre;
+}
+
+.app-shell--polished .python-spec-expected {
+  margin: 13px 0 0;
+  padding: 12px 14px;
+  border-left: 3px solid #788bd0;
+  border-radius: 0 8px 8px 0;
+  background: #17243a;
+}
+
+.app-shell--polished .python-spec-practice {
+  border-color: #3b5971;
+  background: linear-gradient(145deg, #15283c, #101d2d 72%);
+}
+
+.app-shell--polished .python-spec-runtime-note {
+  display: grid;
+  gap: 3px;
+  margin: 14px 0;
+  padding: 12px 14px;
+  border: 1px solid #74603a;
+  border-left: 3px solid #d4ad65;
+  border-radius: 9px;
+  background: #29271f;
+  color: #f2dfb6;
+}
+
+.app-shell--polished .python-spec-runtime-note strong {
+  color: #ffe7af;
+  font-size: 14px;
+}
+
+.app-shell--polished .python-spec-runtime-note span {
+  color: #e7d9b9;
+  font-size: 14px;
+  line-height: 1.55;
+}
+
+.app-shell--polished .python-spec-editor-toolbar {
+  align-items: flex-start;
+  margin: 15px 0 8px;
+}
+
+.app-shell--polished .python-spec-editor-toolbar > span {
+  padding-top: 8px;
+  color: #b3c5d8;
+  font-size: 13px;
+}
+
+.app-shell--polished .python-spec-editor-toolbar > div {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+}
+
+.app-shell--polished .python-spec-editor-toolbar button,
+.app-shell--polished .python-spec-quiz-result button {
+  min-height: 38px;
+  padding: 7px 10px;
+  font-size: 13px;
+}
+
+.app-shell--polished .python-spec-editor-toolbar button:disabled {
+  border-color: #394454;
+  background: #202a37;
+  color: #a0adbb;
+  cursor: not-allowed;
+  opacity: 1;
+}
+
+.app-shell--polished .python-spec-editor {
+  display: grid;
+  grid-template-columns: 42px minmax(0, 1fr);
+  overflow: hidden;
+  min-height: 180px;
+  border: 1px solid #344b63;
+  border-radius: 9px;
+  background: #091522;
+}
+
+.app-shell--polished .python-spec-line-numbers,
+.app-shell--polished .python-spec-editor textarea {
+  height: 100%;
+  min-height: 180px;
+  margin: 0;
+  padding: 13px 9px;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  color: #9bb0c6;
+  font: 14px/1.7 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  white-space: pre;
+}
+
+.app-shell--polished .python-spec-line-numbers {
+  overflow: hidden;
+  border-right: 1px solid #263b51;
+  color: #71869e;
+  text-align: right;
+  user-select: none;
+}
+
+.app-shell--polished .python-spec-editor textarea {
+  width: 100%;
+  resize: vertical;
+  outline: none;
+  color: #e2edf7;
+  tab-size: 4;
+}
+
+.app-shell--polished .python-spec-editor:focus-within {
+  border-color: #64bfd8;
+  box-shadow: 0 0 0 3px rgba(81, 185, 215, 0.2);
+}
+
+.app-shell--polished .python-spec-run-command,
+.app-shell--polished .python-spec-sample-input > span {
+  margin: 10px 0;
+  color: #becddd;
+  font-size: 14px !important;
+  line-height: 1.6 !important;
+}
+
+.app-shell--polished .python-spec-run-command code,
+.app-shell--polished .python-spec-section p code,
+.app-shell--polished .python-spec-checklist code {
+  padding: 2px 5px;
+  border: 1px solid #344a61;
+  border-radius: 5px;
+  background: #182b41;
+  color: #b9e6f3;
+  font: 0.92em ui-monospace, SFMono-Regular, Consolas, monospace;
+}
+
+.app-shell--polished .python-spec-output {
+  margin-top: 12px;
+  padding: 13px 15px;
+  border: 1px solid #31475f;
+  border-radius: 9px;
+  background: #142438;
+}
+
+.app-shell--polished .python-spec-output > strong {
+  color: #d4e1ed;
+  font-size: 14px;
+}
+
+.app-shell--polished .python-spec-output p,
+.app-shell--polished .python-spec-output > span {
+  display: block;
+  margin: 6px 0 0;
+  color: #bbc9d8;
+  font-size: 14px !important;
+  line-height: 1.55 !important;
+}
+
+.app-shell--polished .python-spec-output.is-reference-stale {
+  border-style: dashed;
+}
+
+.app-shell--polished .python-spec-output.is-reference-stale > strong {
+  color: #f1d7a3;
+}
+
+.app-shell--polished .python-spec-hint,
+.app-shell--polished .python-spec-stack {
+  margin-top: 12px;
+  border: 1px solid #354b63;
+  border-radius: 9px;
+  background: #142439;
+}
+
+.app-shell--polished .python-spec-hint summary,
+.app-shell--polished .python-spec-stack summary {
+  padding: 10px 13px;
+  color: #c9dff0;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 650;
+}
+
+.app-shell--polished .python-spec-hint p,
+.app-shell--polished .python-spec-stack ol {
+  margin: 0;
+  padding: 0 14px 12px 32px;
+  color: #c5d1de;
+  font-size: 14px !important;
+  line-height: 1.6 !important;
+}
+
+.app-shell--polished .python-spec-feedback {
+  margin: 10px 0 0 !important;
+  color: #abe7d0 !important;
+  font-size: 14px !important;
+}
+
+.app-shell--polished .python-spec-guide {
+  border-left: 3px solid #8d86d6;
+  background: #191f37;
+}
+
+.app-shell--polished .python-spec-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  margin: 12px 0;
+}
+
+.app-shell--polished .python-spec-tabs button,
+.app-shell--polished .python-spec-chart-controls button {
+  min-height: 40px;
+  padding: 7px 13px;
+  border: 1px solid #3a506a;
+  border-radius: 8px;
+  background: #14263b;
+  color: #c5d4e3;
+  cursor: pointer;
+}
+
+.app-shell--polished .python-spec-tabs button:hover,
+.app-shell--polished .python-spec-chart-controls button:hover {
+  border-color: #5e9db2;
+  background: #1a334a;
+}
+
+.app-shell--polished .python-spec-tabs button.is-active,
+.app-shell--polished .python-spec-chart-controls button.is-active {
+  border-color: #5aafc6;
+  background: #16384a;
+  color: #e2f7fc;
+}
+
+.app-shell--polished .python-spec-checklist {
+  display: grid;
+  gap: 7px;
+  margin: 12px 0;
+  padding-left: 22px;
+  color: #d1dce8;
+}
+
+.app-shell--polished .python-spec-check-row,
+.app-shell--polished .python-spec-checklist-grid label {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  color: #d2deea;
+  font-size: 15px;
+  line-height: 1.55;
+}
+
+.app-shell--polished .python-spec-check-row input,
+.app-shell--polished .python-spec-checklist-grid input {
+  flex: 0 0 auto;
+  width: 17px;
+  height: 17px;
+  margin-top: 4px;
+  accent-color: #45abc3;
+}
+
+.app-shell--polished .python-spec-validation {
+  border-left: 3px solid #d3a55b;
+  background: #262633;
+}
+
+.app-shell--polished .python-spec-flow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  padding: 16px 10px;
+  border: 1px solid #2e465e;
+  border-radius: 10px;
+  background: #0e1b2b;
+}
+
+.app-shell--polished .python-spec-flow > span,
+.app-shell--polished .python-spec-flow > strong {
+  padding: 9px 12px;
+  border: 1px solid #34516a;
+  border-radius: 8px;
+  background: #172c42;
+  color: #d7e7f3;
+  text-align: center;
+  font-size: 14px;
+  line-height: 1.45;
+}
+
+.app-shell--polished .python-spec-flow > strong {
+  border-color: #32755d;
+  background: #17392f;
+  color: #bcebd8;
+}
+
+.app-shell--polished .python-spec-flow > b {
+  color: #81cce0;
+  font-size: 15px;
+}
+
+.app-shell--polished .python-spec-section table {
+  width: 100%;
+  border-collapse: collapse;
+  color: #d1deea;
+  font-size: 14px;
+}
+
+.app-shell--polished .python-spec-section caption {
+  padding: 5px 0 9px;
+  color: #b6c7d8;
+  font-size: 14px;
+  text-align: left;
+}
+
+.app-shell--polished .python-spec-section th,
+.app-shell--polished .python-spec-section td {
+  padding: 9px 10px;
+  border: 1px solid #31475e;
+  text-align: left;
+}
+
+.app-shell--polished .python-spec-section thead th {
+  background: #182b40;
+  color: #e3edf6;
+}
+
+.app-shell--polished .python-spec-type-grid,
+.app-shell--polished .python-spec-operator-grid,
+.app-shell--polished .python-spec-compare {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 9px;
+}
+
+.app-shell--polished .python-spec-type-grid > div,
+.app-shell--polished .python-spec-operator-grid > div,
+.app-shell--polished .python-spec-compare article {
+  display: grid;
+  gap: 6px;
+  padding: 12px;
+  border: 1px solid #30465d;
+  border-radius: 9px;
+  background: #14263b;
+}
+
+.app-shell--polished .python-spec-type-grid strong,
+.app-shell--polished .python-spec-operator-grid code {
+  color: #a8e2f0;
+  font: 700 15px/1.4 ui-monospace, SFMono-Regular, Consolas, monospace;
+}
+
+.app-shell--polished .python-spec-type-grid code {
+  color: #dbe7f2;
+  font: 14px ui-monospace, SFMono-Regular, Consolas, monospace;
+}
+
+.app-shell--polished .python-spec-operator-grid span,
+.app-shell--polished .python-spec-compare p {
+  color: #c3d1df;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.app-shell--polished .python-spec-compare {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.app-shell--polished .python-spec-compare h4 {
+  margin: 0;
+  color: #f0f5fb;
+}
+
+.app-shell--polished .python-spec-compare p {
+  margin: 0;
+}
+
+.app-shell--polished .python-spec-set-diagram {
+  display: grid;
+  justify-items: center;
+  gap: 10px;
+  padding: 15px;
+  border: 1px solid #31475e;
+  border-radius: 10px;
+  background: #0f1c2b;
+}
+
+.app-shell--polished .python-spec-set-diagram > div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: min(100%, 360px);
+  min-height: 110px;
+}
+
+.app-shell--polished .python-spec-set-diagram span {
+  display: grid;
+  width: 125px;
+  height: 90px;
+  place-items: center;
+  margin: 0 -9px;
+  border: 1px solid #54aabd;
+  border-radius: 50%;
+  background: rgba(31, 104, 128, 0.48);
+  color: #e1f8fc;
+  font-size: 14px;
+}
+
+.app-shell--polished .python-spec-set-diagram p {
+  margin: 0;
+  text-align: center;
+  font-size: 14px;
+}
+
+.app-shell--polished .python-spec-tree {
+  display: grid;
+  gap: 7px;
+  padding: 14px;
+  border: 1px solid #30465e;
+  border-radius: 9px;
+  background: #0e1b2b;
+  color: #d7e3ee;
+  font: 14px/1.65 ui-monospace, SFMono-Regular, Consolas, monospace;
+}
+
+.app-shell--polished .python-spec-tree strong {
+  color: #a5dceb;
+}
+
+.app-shell--polished .python-spec-test-result {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  padding: 14px;
+  border: 1px solid #2b6f58;
+  border-radius: 9px;
+  background: #12342b;
+  color: #c9e9db;
+}
+
+.app-shell--polished .python-spec-test-result strong {
+  padding: 3px 8px;
+  border-radius: 6px;
+  background: #1d6a50;
+  color: #e6fff4;
+}
+
+.app-shell--polished .python-spec-quiz {
+  border-color: #344863;
+  background: #121f32;
+}
+
+.app-shell--polished .python-spec-question-list {
+  display: grid;
+  gap: 12px;
+  margin: 14px 0;
+}
+
+.app-shell--polished .python-spec-question {
+  min-width: 0;
+  margin: 0;
+  padding: 14px 15px;
+  border: 1px solid #33495f;
+  border-radius: 10px;
+  background: #14263b;
+}
+
+.app-shell--polished .python-spec-question legend {
+  max-width: 100%;
+  padding: 0 4px;
+  color: #f0f5fb;
+  font-size: 16px;
+  font-weight: 650;
+  line-height: 1.5;
+}
+
+.app-shell--polished .python-spec-question legend span {
+  display: block;
+  margin-bottom: 4px;
+  color: #9fc5d8;
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.app-shell--polished .python-spec-choice {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin: 9px 0 0;
+  padding: 8px 9px;
+  border: 1px solid transparent;
+  border-radius: 7px;
+  color: #cedae6;
+  font-size: 14px;
+  line-height: 1.55;
+  cursor: pointer;
+}
+
+.app-shell--polished .python-spec-choice:hover {
+  border-color: #344f69;
+  background: #182c42;
+}
+
+.app-shell--polished .python-spec-choice input {
+  flex: 0 0 auto;
+  width: 17px;
+  height: 17px;
+  margin-top: 3px;
+  accent-color: #50b1c9;
+}
+
+.app-shell--polished .python-spec-question.is-correct {
+  border-color: #34795e;
+}
+
+.app-shell--polished .python-spec-question.is-incorrect {
+  border-color: #815c49;
+}
+
+.app-shell--polished .python-spec-answer-explanation {
+  margin: 10px 0 0 !important;
+  padding: 10px 11px;
+  border-radius: 7px;
+  background: #0e1a29;
+  color: #d1deea !important;
+  font-size: 14px !important;
+  line-height: 1.6 !important;
+}
+
+.app-shell--polished .python-spec-quiz-result {
+  align-items: flex-start;
+  margin-top: 13px;
+  padding: 13px 14px;
+  border: 1px solid #74593c;
+  border-radius: 9px;
+  background: #29251f;
+}
+
+.app-shell--polished .python-spec-quiz-result > div {
+  display: grid;
+  gap: 3px;
+}
+
+.app-shell--polished .python-spec-quiz-result strong {
+  font-size: 16px;
+}
+
+.app-shell--polished .python-spec-quiz-result span {
+  color: #dbcfae;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.app-shell--polished .python-spec-quiz-result.is-passed {
+  border-color: #26745d;
+  background: #11372d;
+}
+
+.app-shell--polished .python-spec-quiz-result.is-passed span {
+  color: #bce6d4;
+}
+
+.app-shell--polished .python-spec-common-mistake {
+  margin: 14px 0;
+  padding: 11px 13px;
+  border-left: 3px solid #d09e5b;
+  border-radius: 0 8px 8px 0;
+  background: #29271f;
+  color: #e4d8bd !important;
+  font-size: 14px !important;
+}
+
+.app-shell--polished .python-spec-completion {
+  align-items: flex-start;
+  margin-top: 15px;
+  padding: 13px;
+  border: 1px solid #334b63;
+  border-radius: 9px;
+  background: #13243a;
+}
+
+.app-shell--polished .python-spec-completion > div {
+  max-width: 58ch;
+}
+
+.app-shell--polished .python-spec-completion p {
+  margin: 4px 0 0;
+  color: #bccbda;
+  font-size: 14px;
+}
+
+.app-shell--polished .python-spec-completion button {
+  flex: 0 0 auto;
+  min-height: 42px;
+  font-size: 14px;
+}
+
+.app-shell--polished .python-spec-completion button:disabled {
+  border-color: #3b4a5b;
+  background: #202c3a;
+  color: #a8b5c4;
+  cursor: not-allowed;
+  opacity: 1;
+}
+
+.app-shell--polished .python-spec-saved-content {
+  margin: 15px 0;
+  border: 1px solid #354b63;
+  border-radius: 10px;
+  background: #111f33;
+}
+
+.app-shell--polished .python-spec-saved-content summary {
+  padding: 12px 15px;
+  color: #d5e2ee;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 650;
+}
+
+.app-shell--polished .python-spec-saved-content .python-lesson-content {
+  padding: 0 12px 12px;
+}
+
+.app-shell--polished .python-spec-chart-reference,
+.app-shell--polished .python-spec-chart-library {
+  margin-top: 14px;
+  padding: 13px;
+  border: 1px solid #30475f;
+  border-radius: 10px;
+  background: #0e1b2b;
+}
+
+.app-shell--polished .python-spec-chart-controls {
+  display: flex;
+  gap: 7px;
+}
+
+.app-shell--polished .python-spec-chart-reference svg {
+  display: block;
+  width: min(100%, 520px);
+  height: auto;
+  margin: 10px auto 4px;
+  overflow: visible;
+}
+
+.app-shell--polished .python-spec-chart-reference svg line,
+.app-shell--polished .python-spec-chart-reference svg polyline {
+  stroke: #74cbe0;
+  stroke-width: 2.5;
+}
+
+.app-shell--polished .python-spec-chart-reference svg line {
+  stroke: #8295a9;
+  stroke-width: 1;
+}
+
+.app-shell--polished .python-spec-chart-reference svg circle {
+  fill: #74cbe0;
+  stroke: #0e1b2b;
+  stroke-width: 1.5;
+}
+
+.app-shell--polished .python-spec-chart-reference svg text {
+  fill: #cbd9e7;
+  font: 11px ui-sans-serif, system-ui, sans-serif;
+}
+
+.app-shell--polished .python-spec-chart-reference > p,
+.app-shell--polished .python-spec-chart-library > p {
+  margin: 8px 0 0;
+  color: #b9c8d7;
+  font-size: 14px !important;
+}
+
+.app-shell--polished .python-spec-bars {
+  display: flex;
+  align-items: end;
+  justify-content: center;
+  gap: 18px;
+  height: 170px;
+  margin: 14px auto 3px;
+  padding: 12px 30px 22px;
+  border-bottom: 1px solid #61758a;
+  width: min(100%, 430px);
+}
+
+.app-shell--polished .python-spec-bars span {
+  position: relative;
+  display: flex;
+  flex: 1 1 50px;
+  justify-content: center;
+  min-height: 30px;
+  border: 1px solid #4b9ab1;
+  border-radius: 6px 6px 0 0;
+  background: #1d627b;
+}
+
+.app-shell--polished .python-spec-bars b {
+  align-self: flex-start;
+  padding-top: 5px;
+  color: #edfaff;
+  font-size: 13px;
+}
+
+.app-shell--polished .python-spec-bars small {
+  position: absolute;
+  top: calc(100% + 7px);
+  color: #c4d2df;
+  font-size: 13px;
+}
+
+.app-shell--polished .python-lesson-pager > span {
+  align-self: center;
+  color: #b7c7d8;
+  font-size: 14px;
+}
+
+.app-shell--polished .python-spec-complete-mark {
+  color: #85dfb8 !important;
+  font-size: 15px;
+  font-weight: 800;
+}
+
+.app-shell--polished .python-lesson-outline__item.is-complete {
+  border-color: #254f43;
+}
+
+.app-shell--polished .python-spec-status {
+  margin: 0;
+  color: #c5d4e2;
+  font-size: 13px;
+}
+
+.app-shell--polished .python-spec-special-page > .back-button {
+  margin: 0 0 12px;
+}
+
+.app-shell--polished .python-spec-field {
+  display: grid;
+  gap: 6px;
+  margin: 12px 0;
+  color: #d9e4ef;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.app-shell--polished .python-spec-field input,
+.app-shell--polished .python-spec-field select,
+.app-shell--polished .python-spec-field textarea,
+.app-shell--polished .python-spec-test-table input,
+.app-shell--polished .python-spec-test-table select {
+  width: 100%;
+  min-height: 42px;
+  padding: 9px 10px;
+  border: 1px solid #3a5067;
+  border-radius: 8px;
+  background: #0d1928;
+  color: #e3edf7;
+  font-family: inherit;
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+.app-shell--polished .python-spec-field textarea {
+  resize: vertical;
+}
+
+.app-shell--polished .python-spec-field input:focus,
+.app-shell--polished .python-spec-field select:focus,
+.app-shell--polished .python-spec-field textarea:focus,
+.app-shell--polished .python-spec-test-table input:focus,
+.app-shell--polished .python-spec-test-table select:focus {
+  border-color: #66bfd8;
+  outline: 3px solid rgba(81, 185, 215, 0.2);
+}
+
+.app-shell--polished .python-spec-checklist-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.app-shell--polished .python-spec-checklist-grid label {
+  padding: 11px;
+  border: 1px solid #30465d;
+  border-radius: 8px;
+  background: #14263b;
+}
+
+.app-shell--polished .python-spec-table-wrap {
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+.app-shell--polished .python-spec-test-table {
+  min-width: 860px;
+}
+
+.app-shell--polished .python-spec-test-table input,
+.app-shell--polished .python-spec-test-table select {
+  min-width: 100px;
+  padding: 7px;
+  font-size: 13px;
+}
+
+.app-shell--polished .python-spec-rubric {
+  display: grid;
+  gap: 8px;
+}
+
+.app-shell--polished .python-spec-rubric > div {
+  display: grid;
+  grid-template-columns: 115px minmax(0, 1fr);
+  gap: 12px;
+  padding: 11px 12px;
+  border: 1px solid #30465d;
+  border-radius: 8px;
+  background: #14263b;
+}
+
+.app-shell--polished .python-spec-rubric > div > strong {
+  color: #a8dfea;
+  font-size: 14px;
+}
+
+.app-shell--polished .python-spec-rubric span {
+  display: grid;
+  gap: 2px;
+  color: #c5d2df;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.app-shell--polished .python-spec-rubric span b {
+  color: #eef4fa;
+}
+
+.app-shell--polished .python-spec-submit-state {
+  display: grid;
+  gap: 4px;
+  border-left: 3px solid #8f83cf;
+}
+
+.app-shell--polished .python-spec-submit-state span {
+  color: #c6d2e0;
+  font-size: 14px;
+  line-height: 1.55;
+}
+
+@media (max-width: 900px) {
+  .app-shell--polished .python-course-progress {
+    grid-template-columns: minmax(0, 1fr) minmax(100px, 180px);
+  }
+
+  .app-shell--polished .python-course-overview__actions {
+    grid-column: 1 / -1;
+    justify-content: flex-start;
+  }
+
+  .app-shell--polished .python-spec-learning-points {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .app-shell--polished .python-course-progress {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    padding: 15px;
+  }
+
+  .app-shell--polished .python-course-overview__actions,
+  .app-shell--polished .python-spec-completion,
+  .app-shell--polished .python-spec-quiz-result,
+  .app-shell--polished .python-course-extra {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .app-shell--polished .python-course-overview__actions button,
+  .app-shell--polished .python-spec-completion button,
+  .app-shell--polished .python-spec-quiz-result button,
+  .app-shell--polished .python-course-extra button {
+    width: 100%;
+  }
+
+  .app-shell--polished .python-spec-lesson,
+  .app-shell--polished .python-spec-special-page {
+    font-size: 16px;
+  }
+
+  .app-shell--polished .python-spec-section {
+    padding: 16px 14px;
+  }
+
+  .app-shell--polished .python-spec-section-heading h3 {
+    font-size: 20px;
+  }
+
+  .app-shell--polished .python-spec-editor-toolbar {
+    display: grid;
+  }
+
+  .app-shell--polished .python-spec-editor-toolbar > div {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .app-shell--polished .python-spec-editor-toolbar button {
+    min-height: 42px;
+  }
+
+  .app-shell--polished .python-spec-flow {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .app-shell--polished .python-spec-flow > b {
+    transform: rotate(90deg);
+    text-align: center;
+  }
+
+  .app-shell--polished .python-spec-type-grid,
+  .app-shell--polished .python-spec-operator-grid,
+  .app-shell--polished .python-spec-compare,
+  .app-shell--polished .python-spec-checklist-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .app-shell--polished .python-spec-rubric > div {
+    grid-template-columns: 1fr;
+    gap: 4px;
+  }
+
+  .app-shell--polished .python-lesson-pager {
+    flex-wrap: wrap;
+  }
+
+  .app-shell--polished .python-lesson-pager button {
+    flex: 1 1 135px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .app-shell--polished .python-course-progress__bar span {
+    transition: none;
+  }
+}
+
+.app-shell--polished .python-capstone-builder__intro,
+.app-shell--polished .python-capstone-builder__note {
+  color: #c3d1df;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.app-shell--polished .python-capstone-builder__toolbar,
+.app-shell--polished .python-capstone-builder__toolbar > div,
+.app-shell--polished .python-capstone-builder__filebar,
+.app-shell--polished .python-capstone-builder__filebar > div {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+
+.app-shell--polished .python-capstone-builder__toolbar,
+.app-shell--polished .python-capstone-builder__filebar {
+  justify-content: space-between;
+}
+
+.app-shell--polished .python-capstone-builder__toolbar {
+  flex-wrap: wrap;
+  margin: 16px 0 10px;
+}
+
+.app-shell--polished .python-capstone-builder__toolbar button,
+.app-shell--polished .python-capstone-builder__filebar button {
+  min-height: 38px;
+  font-size: 13px;
+}
+
+.app-shell--polished .python-capstone-builder__entrypoint {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  color: #c3d1df;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.app-shell--polished .python-capstone-builder__entrypoint select {
+  min-height: 38px;
+  max-width: 220px;
+  padding: 6px 28px 6px 9px;
+  border: 1px solid #344b63;
+  border-radius: 7px;
+  background: #0b1726;
+  color: #e2edf7;
+  font: 13px/1.4 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+}
+
+.app-shell--polished .python-capstone-builder__entrypoint select:focus-visible {
+  outline: 2px solid #4ca9c4;
+  outline-offset: 2px;
+}
+
+.app-shell--polished .python-capstone-builder__save,
+.app-shell--polished .python-capstone-builder__message {
+  color: #b8d8c9;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.app-shell--polished .python-capstone-builder__grid {
+  display: grid;
+  grid-template-columns: minmax(150px, 215px) minmax(0, 1fr);
+  min-height: 420px;
+  overflow: hidden;
+  border: 1px solid #344b63;
+  border-radius: 10px;
+  background: #091522;
+}
+
+.app-shell--polished .python-capstone-builder__files {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 5px;
+  padding: 12px;
+  border-right: 1px solid #2d4359;
+  background: #0e1b2b;
+}
+
+.app-shell--polished .python-capstone-builder__files > strong {
+  padding: 2px 7px 7px;
+  color: #b8cadd;
+  font-size: 13px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.app-shell--polished .python-capstone-builder__files button {
+  min-width: 0;
+  min-height: 38px;
+  padding: 7px 9px;
+  overflow-wrap: anywhere;
+  border: 1px solid transparent;
+  border-radius: 7px;
+  background: transparent;
+  color: #c6d4e2;
+  font: 14px/1.4 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  text-align: left;
+  cursor: pointer;
+  transition: background-color 140ms ease, border-color 140ms ease, color 140ms ease;
+}
+
+.app-shell--polished .python-capstone-builder__files button:hover {
+  border-color: #344b63;
+  background: #17283d;
+  color: #eef5fb;
+}
+
+.app-shell--polished .python-capstone-builder__files button.is-active {
+  border-color: #35647a;
+  background: #163246;
+  color: #c5eff7;
+}
+
+.app-shell--polished .python-capstone-builder__editor {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+}
+
+.app-shell--polished .python-capstone-builder__filebar {
+  min-height: 52px;
+  padding: 7px 12px;
+  border-bottom: 1px solid #2d4359;
+  background: #101f31;
+}
+
+.app-shell--polished .python-capstone-builder__filebar > strong {
+  min-width: 0;
+  overflow-wrap: anywhere;
+  color: #dce8f3;
+  font: 14px/1.4 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+}
+
+.app-shell--polished .python-capstone-builder__editor textarea {
+  display: block;
+  width: 100%;
+  min-width: 0;
+  min-height: 365px;
+  flex: 1;
+  padding: 16px;
+  resize: vertical;
+  border: 0;
+  border-radius: 0;
+  outline: none;
+  background: #091522;
+  color: #e2edf7;
+  font: 14px/1.7 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  tab-size: 4;
+  white-space: pre;
+}
+
+.app-shell--polished .python-capstone-builder__editor textarea:focus-visible {
+  outline: 2px solid #4ca9c4;
+  outline-offset: -3px;
+}
+
+.app-shell--polished .python-capstone-builder__message {
+  margin-top: 9px;
+  color: #b7def0;
+}
+
+.app-shell--polished .python-capstone-builder__note {
+  margin: 10px 0 0;
+  color: #9fb0c2;
+  font-size: 13px;
+}
+
+@media (max-width: 680px) {
+  .app-shell--polished .python-capstone-builder__grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .app-shell--polished .python-capstone-builder__files {
+    max-height: 160px;
+    overflow-y: auto;
+    border-right: 0;
+    border-bottom: 1px solid #2d4359;
+  }
+
+  .app-shell--polished .python-capstone-builder__filebar,
+  .app-shell--polished .python-capstone-builder__filebar > div {
+    align-items: flex-start;
+    flex-wrap: wrap;
+  }
+
+  .app-shell--polished .python-capstone-builder__filebar > div {
+    justify-content: flex-end;
+  }
+
+  .app-shell--polished .python-capstone-builder__editor textarea {
+    min-height: 300px;
+    padding: 13px;
+    font-size: 14px;
+  }
+}
+
+.app-shell--polished .python-spec-stdin {
+  display: grid;
+  gap: 6px;
+  margin: 12px 0;
+  color: #d5e1ed;
+  font-size: 14px;
+  font-weight: 650;
+}
+
+.app-shell--polished .python-spec-stdin > span {
+  color: #aabbd0;
+  font-size: 13px;
+  font-weight: 400;
+}
+
+.app-shell--polished .python-spec-stdin textarea {
+  width: 100%;
+  min-width: 0;
+  padding: 10px 12px;
+  border: 1px solid #344b63;
+  border-radius: 8px;
+  background: #0b1726;
+  color: #e2edf7;
+  font: 14px/1.55 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  resize: vertical;
+}
+
+.app-shell--polished .python-spec-run-panel {
+  display: grid;
+  gap: 8px;
+  margin: 12px 0;
+  padding: 12px 14px;
+  border: 1px solid #34516a;
+  border-radius: 9px;
+  background: #0d1b2b;
+  color: #d4e1ed;
+}
+
+.app-shell--polished .python-spec-run-panel.is-error {
+  border-color: #885253;
+  background: #241a22;
+}
+
+.app-shell--polished .python-spec-run-panel__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.app-shell--polished .python-spec-run-panel__header strong {
+  color: #d7edf5;
+  font-size: 14px;
+}
+
+.app-shell--polished .python-spec-run-panel.is-error .python-spec-run-panel__header strong,
+.app-shell--polished .python-spec-run-panel > p[role="alert"] {
+  color: #ffc2bf;
+}
+
+.app-shell--polished .python-spec-run-panel__version {
+  color: #9eb2c7;
+  font-size: 12px;
+}
+
+.app-shell--polished .python-spec-run-panel__figure {
+  display: block;
+  max-width: 100%;
+  max-height: 520px;
+  border: 1px solid #344b63;
+  border-radius: 7px;
+  background: #fff;
+  object-fit: contain;
+}
+
+.app-shell--polished .python-spec-run-panel pre {
+  max-height: 320px;
+  overflow: auto;
+  margin: 0;
+  padding: 11px 12px;
+  border: 1px solid #263b51;
+  border-radius: 7px;
+  background: #07111e;
+  color: #d6e6f3;
+  font: 13px/1.6 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+.app-shell--polished .python-spec-run-panel > p[role="alert"] {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+@media (max-width: 640px) {
+  .app-shell--polished .python-spec-run-panel__header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}

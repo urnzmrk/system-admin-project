@@ -1,0 +1,51 @@
+# Topic 5 — GNU/LINUX, OPEN SOURCE SOFTWARE, LICENSING & SOFTWARE FREEDOM
+
+## 1. Linux and the GNU Project
+The Linux kernel and the GNU Project are historically separate projects. The Linux kernel was created by Linus Torvalds, while GNU began under Richard Stallman with the goal of building a free Unix-like operating system. Many tools used in Linux systems—compilers, command-line utilities, libraries, and development tools—come from GNU or were influenced by the GNU ecosystem.
+Because a complete usable operating system requires more than a kernel, many distributions combine the Linux kernel with GNU software and other components. This is the basis of the GNU/Linux terminology discussed in .
+## 2. Why Some People Say GNU/Linux
+The kernel as the "bones" of the system and GNU utilities and development tools as much of the "meat." The analogy emphasizes that a working system needs both low-level kernel functionality and user-space software.
+The Free Software Foundation uses the name GNU/Linux to give explicit recognition to the GNU components. Other users and organizations simply use Linux as the conventional name for the operating-system family. Both usages can be understood while keeping the technical distinction clear.
+## 3. What Open Source Means
+Linux is an important example of open-source software. Open source means that the source code is available under a license that permits users to study it, modify it, and redistribute it under defined conditions. It does not merely mean that software is free of cost.
+Open development allows developers from different organizations and locations to inspect code, submit improvements, create distributions, and adapt Linux for different hardware or purposes. This helps explain why so many Linux variants exist.
+## 4. GNU General Public License (GPL)
+Identifies the GNU General Public License as a major free-software license used by the Linux kernel and many GNU components. The GPL is a copyleft license. When software derived from GPL-licensed source code is distributed, the corresponding source code and modifications must be made available to recipients under compatible terms.
+The practical importance is that recipients continue to receive the freedoms associated with the original software. The license therefore affects not only programming but also how software can be redistributed and incorporated into products.
+## 5. Software Freedom and Collaboration
+Open-source and free-software communities encourage users and developers to inspect how software works, improve it, and share changes. This model differs from software in which the source code is kept private and modification rights are limited by the owner.
+For system administrators, open-source software also changes the support model. Documentation, source repositories, package maintainers, distribution communities, vendors, and commercial support providers can all contribute to the ecosystem.
+## 6. Licensing and Linux Distributions
+Linux distributions package software from many different projects. Although the Linux kernel uses the GPL, a distribution contains thousands of packages that may use different open-source licenses. Distribution maintainers organize these packages, resolve dependencies, apply updates, and provide repositories.
+This makes licensing part of software management. Administrators need to know where software comes from, how it is maintained, and whether it can be legally redistributed or modified in a particular environment.
+## 7. Meaning of Open Source
+Open-source software makes source code available under a license that grants defined rights to use, study, modify, and redistribute the software.
+Open source is therefore a licensing and development model, not simply a statement that software costs nothing.
+## 8. Source Code and Collaboration
+When source code is available, developers can inspect behavior, identify bugs, create improvements, and adapt software to different needs. Public collaboration can allow many independent contributors to participate in one project.
+Linux kernel development and many GNU tools are examples of large collaborative open-source projects.
+## 9. GNU General Public License
+The GNU General Public License is a widely used free-software license. It is a copyleft license that requires distributed derivative source code to remain available under compatible terms.
+The Linux kernel is distributed under the GPLv2 license, while Linux distributions also contain software under many other licenses.
+## 10. Copyleft
+Copyleft uses copyright law to preserve freedoms when software is redistributed. Instead of allowing a distributor to take the code proprietary without obligations, copyleft requires specified freedoms to be maintained for recipients.
+This model helped ensure that improvements to many GPL-licensed components could remain available to the community.
+## 11. GNU/Linux Naming
+The term GNU/Linux emphasizes that a typical system combines the Linux kernel with many GNU programs and libraries. The shorter term Linux is nevertheless widely used for the complete operating-system family.
+The naming debate is historical and philosophical; for administration, the practical point is that a distribution combines components from many projects.
+## 12. Open Source and Commercial Software
+Open-source software can be used commercially. Companies can sell support, integration, hosted services, hardware, consulting, or enterprise distributions while distributing open-source components under their licenses.
+Red Hat, SUSE, Canonical, and other organizations demonstrate that open-source development and commercial services can coexist.
+## 13. Redistribution and Linux Distributions
+Because the kernel and much of the surrounding software can be redistributed, communities and companies can assemble their own distributions.
+This freedom is one reason Linux has many variants designed for different workloads, hardware, and administration styles.
+## 14. Why Licensing Matters to Administrators
+Administrators install and distribute software in organizational environments. Understanding whether software is open source, proprietary, redistributable, or subject to specific license requirements helps organizations use software responsibly.
+Licensing also influences repository availability, vendor support, update policies, and long-term maintenance.
+## 15. Key Takeaways
+GNU and Linux are separate historical projects that are often combined in complete systems.
+GNU/Linux is a term used to emphasize the contribution of GNU user-space software alongside the Linux kernel.
+Open source concerns rights to inspect, modify, and redistribute source code under a license.
+The GPL uses copyleft to preserve source-code availability for redistributed derivative work.
+Open-source licensing helped Linux grow into a large collaborative ecosystem.
+Core Principle: Open-source licensing shapes how Linux software can be studied, changed, redistributed, maintained, and supported.
